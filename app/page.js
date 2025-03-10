@@ -1,11 +1,10 @@
-import { Header } from "@/Components/Header";
-
+import "./globals.css";
+import { NavBar } from "/Components/NavBar.jsx";
 
 export default function Home() {
   return (
- <main>
-  <Header/>
-
- </main>
+    <main>
+      <NavBar />
+    </main>
   );
 }
