@@ -4,6 +4,7 @@ import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import React from "react";
+import PersonIcon from '@mui/icons-material/Person';
 
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -26,9 +27,9 @@ export const NavBar = () => {
 
   return (
     <nav className="h-[60px] w-full fixed py-2 px-4 sm:px-6 md:px-16 border-b flex justify-between items-center bg-white z-50">
-      <h1 className="flex items-center font-serif text-[24px] sm:text-[30px] md:text-[40px]">
+      <h1 className="flex items-center font-serif text-[16px] sm:text-[26px] md:text-[36px]">
         <img src="/logo.png" alt="logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16" />
-        B-MANDU
+        CHAUDHARY HARDWARE
       </h1>
       {/* Desktop Menu */}
       <div className="hidden lg:flex items-center gap-6">
@@ -58,7 +59,7 @@ export const NavBar = () => {
           ))}
           <MenuItem onClick={handleMenuClose}>
             <Link href="/login">
-              <Button variant="contained" color="primary" fullWidth>
+              <Button variant="contained" color="primary" fullWidth endIcon={<PersonIcon/>}>
                 Login
               </Button>
             </Link>

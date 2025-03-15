@@ -8,22 +8,11 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { Formik } from "formik";
 import Link from "next/link";
-import { useState } from "react";
-import toast from "react-hot-toast";
 
 export const LoginForm = () => {
-  const handleGoogleLogin = async () => {
-    try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
-      toast.success("Successfully signed in with Google");
-    } catch (error) {
-      toast.error(error?.message || "Failed to sign in with Google");
-    }
-  };
-
+  
   return (
     <Box className="flex flex-col justify-center items-center min-h-[100vh]">
       <Formik
@@ -77,7 +66,6 @@ export const LoginForm = () => {
 
               <Button
                 variant="outlined"
-                onClick={handleGoogleLogin}
                 className="py-2 w-full my-4"
               >
                 Sign In with Google
