@@ -11,21 +11,13 @@ import {
   Select,
   InputLabel,
 } from "@mui/material";
-import { GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 import { Formik } from "formik";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
 
-export const SignupForm = () => {
-  const handleGoogleSignup = async () => {
-    try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
-      toast.success("Successfully signed up with Google");
-    } catch (error) {
-      toast.error(error?.message || "Failed to sign up with Google");
-    }
-  };
+const SignupForm = () => {
+  
 
   return (
     <Box className="flex flex-col justify-center items-center m-3 min-h-screen px-4 sm:px-6 lg:px-8">
@@ -76,10 +68,8 @@ export const SignupForm = () => {
             {[
               { name: "firstName", label: "First Name" },
               { name: "lastName", label: "Last Name" },
-              { name: "age", label: "Age", type: "number" },
-              { name: "dob", label: "Date of Birth", type: "date" },
               { name: "address", label: "Address" },
-              { name: "description", label: "Description", multiline: true, rows: 3 },
+              { name: "age", label: "Age", type: "number" },
               { name: "email", label: "Email" },
               { name: "password", label: "Password", type: "password" },
               { name: "confirmPassword", label: "Confirm Password", type: "password" },
@@ -110,7 +100,7 @@ export const SignupForm = () => {
                 Register
               </Button>
 
-              <Button variant="outlined" onClick={handleGoogleSignup} className="py-2 w-full">
+              <Button variant="outlined" className="py-2 w-full">
                 Sign Up with Google
                 <img src="/google.png" className="inline h-5 w-5 ml-2" />
               </Button>
@@ -125,3 +115,5 @@ export const SignupForm = () => {
     </Box>
   );
 };
+
+export default SignupForm

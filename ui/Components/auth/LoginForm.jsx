@@ -8,22 +8,10 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { Formik } from "formik";
 import Link from "next/link";
-import { useState } from "react";
-import toast from "react-hot-toast";
 
 export const LoginForm = () => {
-  const handleGoogleLogin = async () => {
-    try {
-      await signInWithPopup(auth, new GoogleAuthProvider());
-      toast.success("Successfully signed in with Google");
-    } catch (error) {
-      toast.error(error?.message || "Failed to sign in with Google");
-    }
-  };
-
   return (
     <Box className="flex flex-col justify-center items-center min-h-[100vh]">
       <Formik
@@ -71,15 +59,16 @@ export const LoginForm = () => {
             </FormControl>
 
             <Stack className="w-full justify-center items-center gap-2">
-              <Button type="submit" fullWidth variant="contained" color="primary">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+              >
                 Submit
               </Button>
 
-              <Button
-                variant="outlined"
-                onClick={handleGoogleLogin}
-                className="py-2 w-full my-4"
-              >
+              <Button variant="outlined" className="py-2 w-full my-4">
                 Sign In with Google
                 <img src="/google.png" className="inline h-5 w-5 ml-2" />
               </Button>
@@ -88,7 +77,10 @@ export const LoginForm = () => {
                 <Button>Forgot Password?</Button>
               </Link>
 
-              <Link className="text-blue-500 hover:text-blue-400" href="/signup">
+              <Link
+                className="text-blue-500 hover:text-blue-400"
+                href="/signup"
+              >
                 Don't have an Account? Signup
               </Link>
             </Stack>
