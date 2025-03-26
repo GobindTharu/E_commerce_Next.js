@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const dbName = "mini-amazon";
+const dbName = "Chaudhary-Hardware";
 const dbUserName = "mern";
 const dbPassword = encodeURIComponent("mern@123");   // understand special characters @,$
 const dbHost = "school.xg9dy.mongodb.net";

@@ -26,9 +26,13 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: 255,
   },
-  dob: {
-    type: Date,
-    max: Date.now(),
+  age: {
+    type: Number,
+    required: true,
+  },
+  phoneNumber: {
+    type: Number,
+    required: true,
   },
   gender: {
     type: String,
@@ -40,7 +44,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
-    enum: ["seller", "buyer"],
+    enum: ["user", "admin"],
   },
   address: {
     type: String,

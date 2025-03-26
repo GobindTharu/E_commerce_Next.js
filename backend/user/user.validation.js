@@ -17,8 +17,9 @@ export const registerCredentialSchema = yup.object({
   password: yup.string().required().trim().min(8).max(30),
   firstName: yup.string().required().trim().max(100),
   lastName: yup.string().required().trim().max(100),
-  dob: yup.date().max(dayjs(), "DOB cannot be future date.").notRequired(),
   gender: yup.string().required().trim().oneOf(["male", "female", "other"]),
-  role: yup.string().required().trim().oneOf(["seller", "buyer"]),
+  role: yup.string().required().trim().oneOf(["admin", "user"]),
   address: yup.string().required().trim().max(255),
+  age:yup.number().required(),
+  phoneNumber:yup.number().required(),
 });
