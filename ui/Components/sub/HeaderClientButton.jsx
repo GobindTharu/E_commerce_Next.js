@@ -1,14 +1,11 @@
 "use client";
 
-import { useAuth } from "@/contexts111/AuthContext";
-import { useUser } from "@/lib1111/firestore1111111/user/read";
 import { Badge } from "@nextui-org/react";
 import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
 
 export default function HeaderClientButtons() {
-  const { user } = useAuth();
-  const { data } = useUser({ uid: user?.uid });
+ 
   return (
     <div className="flex items-center gap-1">
       <Link href={`/favorites`}>

@@ -6,7 +6,7 @@ import Link from "next/link";
 import Slider from "react-slick";
 import FavoriteButton from "./FavoriteButton";
 import AuthContextProvider from "@/contexts111/AuthContext";
-import AddToCartButton from "./AddToCartButton";
+import AddToCartButton from "./sub/AddToCartButton";
 
 export default function FeaturedProductSlider({ featuredProducts }) {
   var settings = {
