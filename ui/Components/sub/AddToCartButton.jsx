@@ -1,8 +1,5 @@
 "use client";
 
-import { useAuth } from "@/contexts111/AuthContext";
-import { useUser } from "@/lib1111/firestore1111111/user/read";
-import { updateCarts } from "@/lib1111/firestore1111111/user/write";
 import { Button } from "@nextui-org/react";
 import { useState } from "react";
 import toast from "react-hot-toast";
@@ -11,8 +8,6 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useRouter } from "next/navigation";
 
 export default function AddToCartButton({ productId, type }) {
-  const { user } = useAuth();
-  const { data } = useUser({ uid: user?.uid });
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 

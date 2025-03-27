@@ -19,13 +19,13 @@ const Footer = () => {
           </div>
           <div className="flex gap-2 items-center">
             <MapPin size={12} className="text-blue-500" />
-            <h2 className="text-sm text-gray-600">kapilbastu-Gorusinge</h2>
+            <h2 className="text-sm text-gray-600">kapilbastu-Nepal</h2>
           </div>
         </div>
       </div>
       <div className="flex justify-center w-full">
         <h3 className="text-xs text-gray-700">
-          &copy; 202 . All rights reserved by // Chaudhary Hardware
+          &copy; 2025. All rights reserved by // B-MANDU
         </h3>
       </div>
     </footer>

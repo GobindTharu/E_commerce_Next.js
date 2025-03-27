@@ -1,34 +1,27 @@
+// import Collections from "@/Components/sub/Collections";
 import { NavBar } from "/Components/main/NavBar.jsx";
-// import FeaturedProductSlider from "./components/Sliders";
-// import Collections from "./components/Collections";
-// import Categories from "./components/Categories";
-// import ProductsGridView from "./components/Products";
-// import CustomerReviews from "./components/CustomerReviews";
-// import Brands from "./components/Brands";
-// import Footer from "./Components/main/Footer";
 
-export const dynamic = "force-dynamic";
+import FeaturedProductSlider from "../Components/sub/Sliders";
+import Categories from "../Components/sub/Categories";
+import ProductsGridView from "../Components/sub/Products";
+import CustomerReviews from "../Components/sub/CustomerReviews";
+import Brands from "../Components/sub/Brands";
+import Footer from "../Components/main/Footer"
+import Collections from "../Components/sub/Collections"
 
-export default async function Home() {
-  // const [featuredProducts, collections, categories, products, brands] =
-  //   await Promise.all([
-  //     getFeaturedProducts(),
-  //     getCollections(),
-  //     getCategories(),
-  //     getProducts(),
-  //     getBrands(),
-  //   ]);
 
+export default function Home() {
+ 
   return (
     <main className="w-screen h-screen overflow-x-hidden overflow-y-auto">
       <NavBar />
-      {/* <FeaturedProductSlider featuredProducts={featuredProducts} /> */}
-      {/* <Collections collections={collections} /> */}
-      {/* <Categories categories={categories} /> */}
-      {/* <ProductsGridView products={products} /> */}
-      {/* <CustomerReviews /> */}
-      {/* <Brands brands={brands} /> */}
-      {/* <Footer /> */}
+       <FeaturedProductSlider/> 
+      <Collections/> 
+      <Categories/>
+      <ProductsGridView/>
+      <CustomerReviews />
+      <Brands/> 
+      <Footer />
     </main>
   );
 }

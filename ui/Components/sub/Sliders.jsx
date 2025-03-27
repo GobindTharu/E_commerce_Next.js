@@ -4,9 +4,8 @@ import { Button } from "@nextui-org/react";
 import { Heart } from "lucide-react";
 import Link from "next/link";
 import Slider from "react-slick";
-import FavoriteButton from "./FavoriteButton";
-import AuthContextProvider from "@/contexts111/AuthContext";
-import AddToCartButton from "./sub/AddToCartButton";
+import FavoriteButton from "../sub/FavoriteButton.jsx";
+import AddToCartButton from "../sub/AddToCartButton";
 
 export default function FeaturedProductSlider({ featuredProducts }) {
   var settings = {

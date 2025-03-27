@@ -26,7 +26,7 @@ export const NavBar = () => {
   ];
 
   return (
-    <nav className="h-[60px] w-full fixed py-2 px-4 sm:px-6 md:px-16 border-b flex justify-between items-center bg-white z-50">
+    <nav className="h-[80px] w-full fixed py-2 px-4 sm:px-6 md:px-16 border-b flex justify-between items-center bg-white z-50 shadow-purple-500/50">
       <h1 className="flex items-center font-serif text-[16px] sm:text-[26px] md:text-[26px]">
         <img src="/logo.png" alt="logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16" />
         B-MANDU

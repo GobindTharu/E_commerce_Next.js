@@ -42,9 +42,9 @@ export default function Categories({ categories }) {
     ],
   };
 
-  if (categories.length === 0) {
-    return <></>;
-  }
+  // if (categories.length === 0) {
+  //   return <></>;
+  // }
 
   return (
     <div className="flex flex-col gap-8 justify-center overflow-hidden md:p-10 p-5">

@@ -1,10 +1,8 @@
 import Link from "next/link";
-import FavoriteButton from "./FavoriteButton";
-import AuthContextProvider from "@/contexts111/AuthContext";
-import AddToCartButton from "./sub/AddToCartButton";
-import { getProductReviewCounts } from "@/lib/firestore/products/count/read";
+import FavoriteButton from "../sub/FavoriteButton.jsx";
+import AddToCartButton from "../sub/AddToCartButton";
 import { Suspense } from "react";
-import MyRating from "./sub/MyRating";
+import MyRating from "../sub/MyRating";
 
 export default function ProductsGridView({ products }) {
   return (

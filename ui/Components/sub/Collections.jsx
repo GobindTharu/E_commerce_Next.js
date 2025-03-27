@@ -1,6 +1,5 @@
 "use client";
 
-import { Heart } from "lucide-react";
 import Link from "next/link";
 import Slider from "react-slick";
 
@@ -40,9 +39,9 @@ export default function Collections({ collections }) {
     ],
   };
 
-  if (collections.length === 0) {
-    return <></>;
-  }
+  // if (collections.length === 0) {
+  //   return <></>;
+  // }
 
   return (
     <div className="overflow-hidden md:p-10 p-5">

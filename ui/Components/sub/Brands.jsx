@@ -2,7 +2,7 @@
 
 import Slider from "react-slick";
 
-export default function Brands({ brands }) {
+export default function Brands(brands) {
   var settings = {
     dots: true,
     infinite: false,
@@ -38,24 +38,46 @@ export default function Brands({ brands }) {
     ],
   };
 
-  if (brands.length === 0) {
-    return <></>;
-  }
-
+  // if (brands.length === 0) {
+  //   return <></>;
+  // }
+  const brand = [
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+  ];
   return (
-    <div className="flex flex-col gap-8 justify-center overflow-hidden md:p-10 p-5">
+    <div className="flex flex-row gap-8 justify-center overflow-hidden md:p-10 p-5">
       <Slider {...settings}>
-        {(brands?.length <= 2
-          ? [...brands, ...brands, ...brands]
-          : brands
-        )?.map((brand) => {
+        {brand.map((item) => {
           return (
             <div className="px-2">
               <div className="flex flex-col gap-2 items-center justify-center">
                 <div className="h-20 rounded-lg md:p-5 p-2 border overflow-hidden">
                   <img
                     className="h-full w-full object-cover"
-                    src={brand?.imageURL}
+                    src={item.imageURL}
                     alt=""
                   />
                 </div>
