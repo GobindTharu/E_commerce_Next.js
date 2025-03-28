@@ -1,10 +1,9 @@
-"use client"
+"use client";
 import { useState } from "react";
 import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import PersonIcon from "@mui/icons-material/Person";
 import Link from "next/link";
-import React from "react";
-import PersonIcon from '@mui/icons-material/Person';
 
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -20,48 +19,58 @@ export const NavBar = () => {
 
   const menuList = [
     { name: "Home", link: "/" },
-    { name: "About-us", link: "/about-us" },
+    { name: "About Us", link: "/about-us" },
     { name: "Services", link: "/services" },
-    { name: "Contact-us", link: "/contact-us" },
+    { name: "Contact Us", link: "/contact-us" },
   ];
 
   return (
-    <nav className="h-[80px] w-full fixed py-2 px-4 sm:px-6 md:px-16 border-b flex justify-between items-center bg-white z-50 shadow-purple-500/50">
-      <h1 className="flex items-center font-serif text-[16px] sm:text-[26px] md:text-[26px]">
-        <img src="/logo.png" alt="logo" className="h-10 w-10 sm:h-12 sm:w-12 md:h-16 md:w-16" />
-        B-MANDU
-      </h1>
+    <nav className="fixed top-0 left-0 w-full backdrop-blur-md  border-b py-3 px-4 sm:px-6 md:px-16 flex justify-between items-center z-50">
+      {/* Logo */}
+      <Link href="/" className="flex items-center text-xl font-serif">
+        <img src="/logo.png" alt="B-MANDU Logo" className="h-12 w-12 md:h-16 md:w-16" />
+        <span className="ml-2 font-bold">B-MANDU</span>
+      </Link>
+      
       {/* Desktop Menu */}
       <div className="hidden lg:flex items-center gap-6">
-        {menuList.map((item) => (
-          <Link key={item.link} href={item.link}>
-            <Button>{item.name}</Button>
+        {menuList.map(({ name, link }) => (
+          <Link key={link} href={link} passHref>
+            <Button color="inherit">{name}</Button>
           </Link>
         ))}
       </div>
-      <div className="hidden lg:flex items-center">
-        <Link href="/login">
-          <Button variant="contained" color="primary" endIcon={<PersonIcon/>}>
-            Login
-          </Button>
+      
+      {/* Desktop Login Button */}
+      <div className="hidden lg:flex">
+        <Link href="/login" passHref>
+          <Button variant="contained" color="primary" endIcon={<PersonIcon />}>Login</Button>
         </Link>
       </div>
+      
       {/* Mobile Menu */}
-      <div className="lg:hidden flex items-center">
-        <IconButton onClick={handleMenuOpen}>
+      <div className="lg:hidden">
+        <IconButton onClick={handleMenuOpen} color="inherit">
           <MenuIcon fontSize="large" />
         </IconButton>
-        <Menu anchorEl={anchorEl} open={open} onClose={handleMenuClose}>
-          {menuList.map((item) => (
-            <MenuItem key={item.link} onClick={handleMenuClose}>
-              <Link href={item.link}>{item.name}</Link>
+        <Menu 
+          anchorEl={anchorEl} 
+          open={open} 
+          onClose={handleMenuClose} 
+          className="lg:hidden"
+          MenuListProps={{
+            onClick: handleMenuClose,
+            className: "w-full flex flex-col items-center"
+          }}
+        >
+          {menuList.map(({ name, link }) => (
+            <MenuItem key={link} className="w-full text-center">
+              <Link href={link} className="w-full block px-4 py-2">{name}</Link>
             </MenuItem>
           ))}
-          <MenuItem onClick={handleMenuClose}>
-            <Link href="/login">
-              <Button variant="contained" color="primary" fullWidth>
-                Login
-              </Button>
+          <MenuItem className="w-full text-center">
+            <Link href="/login" className="w-full">
+              <Button variant="contained" color="primary" fullWidth>Login</Button>
             </Link>
           </MenuItem>
         </Menu>
