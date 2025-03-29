@@ -8,10 +8,27 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import { useMutation } from "@tanstack/react-query";
 import { Formik } from "formik";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
 
 export const LoginForm = () => {
+  const router = useRouter();
+  const { mutate } = useMutation({
+    mutationKey: ["login-user"],
+    mutationFn: async (values) => {
+      return await axios.post("http://localhost:8002/user/signup/", values);
+    },
+    onSucess: (res) => {
+      router.push("/");
+      toast.success("login successful");
+    },
+    onError: (error) => {
+      toast.error("Failed to login");
+    },
+  });
   return (
     <Box className="flex flex-col justify-center items-center min-h-[100vh]">
       <Formik
@@ -20,7 +37,7 @@ export const LoginForm = () => {
           password: "",
         }}
         onSubmit={(values) => {
-          console.log("Form submitted with values: ", values);
+          mutate(values);
         }}
       >
         {(formik) => (
