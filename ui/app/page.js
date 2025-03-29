@@ -7,6 +7,7 @@ import ProductsGridView from "../Components/sub/Products";
 import CustomerReviews from "../Components/sub/CustomerReviews";
 import Brands from "../Components/sub/Brands";
 import Footer from "../Components/main/Footer"
+import Header from "../Components/main/Header"
 import Collections from "../Components/sub/Collections"
 
 
@@ -15,6 +16,7 @@ export default function Home() {
   return (
     <main className="w-screen h-screen overflow-x-hidden overflow-y-auto">
       <NavBar />
+      <Header/>
        <FeaturedProductSlider/> 
       <Collections/> 
       <Categories/>
