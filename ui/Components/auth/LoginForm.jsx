@@ -9,6 +9,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
+import axios from "axios";
 import { Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -19,9 +20,9 @@ export const LoginForm = () => {
   const { mutate } = useMutation({
     mutationKey: ["login-user"],
     mutationFn: async (values) => {
-      return await axios.post("http://localhost:8002/user/signup/", values);
+      return await axios.post("http://localhost:8002/user/login/", values);
     },
-    onSucess: (res) => {
+    onSuccess: (res) => {
       router.push("/");
       toast.success("login successful");
     },

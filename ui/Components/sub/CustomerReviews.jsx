@@ -39,7 +39,7 @@ export default function CustomerReviews() {
                 className="flex flex-col gap-2 p-4 rounded-lg justify-center items-center border"
               >
                 <img
-                  src={item?.imageLink}
+                  src={item.imageLink}
                   className="h-32 w-32 rounded-full object-cover"
                   alt=""
                 />
@@ -47,12 +47,12 @@ export default function CustomerReviews() {
                 <Rating
                   size="small"
                   name="customer-rating"
-                  defaultValue={item?.rating}
+                  defaultValue={item.rating}
                   precision={item?.rating}
                   readOnly
                 />
                 <p className="text-sm text-gray-500 text-center">
-                  {item?.message}
+                  {item.message}
                 </p>
               </div>
             );
