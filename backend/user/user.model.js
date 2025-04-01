@@ -14,6 +14,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  confirmPassword: {
+    type: String,
+    required: true,
+    trim: true,
+  },
   firstName: {
     type: String,
     required: true,
@@ -38,12 +43,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
+    lowercase: true,
     enum: ["male", "female", "other"],
   },
   role: {
     type: String,
     required: true,
     trim: true,
+    lowercase: true,
     enum: ["user", "admin"],
   },
   address: {
@@ -52,6 +59,12 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: 255,
   },
+  description:{
+    type: String,
+    required: true,
+    trim: true,
+    maxlength: 225,
+  }
 });
 
 const UserTable = new mongoose.model("User", userSchema);

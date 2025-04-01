@@ -29,16 +29,15 @@ const SignupForm = () => {
     },
     onSuccess: (res) => {
       router.push("/login");
-      toast.success("Register Successful");
+      toast.success("Register Successful", res.data);
     },
     onError: (error) => {
-      console.error("Registration Error:", error?.response?.data || error);
-      toast.error(error?.response?.data?.message || "Failed to Register");
+      toast.error("Failed to Register");
     },
   });
 
   return (
-    <Box className="flex flex-col justify-center items-center min-h-[100vh]">
+    <Box className="flex flex-col justify-center items-center w-full px-12 min-h-[100vh]">
       <Formik
         initialValues={{
           firstName: "",
@@ -46,7 +45,7 @@ const SignupForm = () => {
           age: "",
           gender: "",
           role: "",
-          dob: "",
+          phoneNumber: "",
           address: "",
           description: "",
           email: "",
@@ -62,9 +61,10 @@ const SignupForm = () => {
             .required("Required"),
           gender: Yup.string().required("Required"),
           role: Yup.string()
-            .oneOf(["User", "Admin"], "Invalid role")
             .required("Required"),
-          dob: Yup.date().required("Required"),
+          phoneNumber: Yup.number()
+            .integer("must Be positive")
+            .required("Required"),
           address: Yup.string().required("Required"),
           description: Yup.string().required("Required"),
           email: Yup.string().email("Invalid email").required("Required"),
@@ -97,7 +97,7 @@ const SignupForm = () => {
               { name: "lastName", label: "Last Name" },
               { name: "address", label: "Address" },
               { name: "age", label: "Age", type: "number" },
-              { name: "dob", label: "Date of Birth", type: "date" },
+              { name: "phoneNumber", label: "Number", type: "number" },
               { name: "email", label: "Email" },
               { name: "password", label: "Password", type: "password" },
               {
@@ -105,7 +105,12 @@ const SignupForm = () => {
                 label: "Confirm Password",
                 type: "password",
               },
-              { name: "description", label: "Description", multiline: true, rows: 3 },
+              {
+                name: "description",
+                label: "Description",
+                multiline: true,
+                rows: 3,
+              },
             ].map(({ name, label, type, multiline, rows }) => (
               <FormControl fullWidth key={name}>
                 <TextField
@@ -123,20 +128,26 @@ const SignupForm = () => {
             ))}
 
             {["gender", "role"].map((field) => (
-              <FormControl fullWidth key={field} error={formik.touched[field] && Boolean(formik.errors[field])}>
-                <InputLabel>{field.charAt(0).toUpperCase() + field.slice(1)}</InputLabel>
+              <FormControl
+                fullWidth
+                key={field}
+                error={formik.touched[field] && Boolean(formik.errors[field])}
+              >
+                <InputLabel>
+                  {field.charAt(0).toUpperCase() + field.slice(1)}
+                </InputLabel>
                 <Select
                   value={formik.values[field]}
                   onChange={(e) => formik.setFieldValue(field, e.target.value)}
                   onBlur={formik.handleBlur}
                 >
                   {field === "gender"
-                    ? ["Male", "Female", "Other"].map((option) => (
+                    ? ["male", "female", "other"].map((option) => (
                         <MenuItem key={option} value={option}>
                           {option}
                         </MenuItem>
                       ))
-                    : ["User", "Admin"].map((option) => (
+                    : ["user", "admin"].map((option) => (
                         <MenuItem key={option} value={option}>
                           {option}
                         </MenuItem>
@@ -149,11 +160,16 @@ const SignupForm = () => {
             ))}
 
             <Stack className="w-full justify-center items-center gap-3">
-              <Button type="submit" fullWidth variant="contained" color="primary">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                color="primary"
+              >
                 Register
               </Button>
 
-              <Button variant="outlined" className="py-2 w-full">
+              <Button variant="outlined" className="py-3 w-full">
                 Sign Up with Google
                 <img src="/google.png" className="inline h-5 w-5 ml-2" />
               </Button>

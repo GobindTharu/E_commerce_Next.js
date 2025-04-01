@@ -24,6 +24,13 @@ export const registerCredentialSchema = yup.object({
     .min(8, "Password must be at least 8 characters long.")
     .max(30, "Password must not exceed 30 characters."),
 
+  confirmPassword: yup
+    .string()
+    .required("Password is required.")
+    .trim()
+    .min(8, "Password must be at least 8 characters long.")
+    .max(30, "Password must not exceed 30 characters."),
+
   firstName: yup
     .string()
     .required("First name is required.")
@@ -47,11 +54,6 @@ export const registerCredentialSchema = yup.object({
     .required("Role is required.")
     .trim()
     .oneOf(["admin", "user"], "Invalid role selection."),
-
-  dob: yup
-    .date()
-    .required("Date of birth is required.")
-    .max(new dayjs(), "Date of birth cannot be in the future."),
 
   address: yup
     .string()

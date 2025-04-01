@@ -25,6 +25,7 @@ export const LoginForm = () => {
     onSuccess: (res) => {
       router.push("/");
       toast.success("login successful");
+      
     },
     onError: (error) => {
       toast.error("Failed to login");
