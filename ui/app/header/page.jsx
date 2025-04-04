@@ -1,13 +1,12 @@
-import React from 'react'
-import HeaderOF from '../../Components/main/HeaderOf'
+import React from "react";
+import HeaderOF from "../../Components/main/Header";
 
 const page = () => {
   return (
     <div>
-        <HeaderOF/>
-      
+      <HeaderOF />
     </div>
-  )
-}
+  );
+};
 
-export default page
+export default page;
