@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 const Footer = () => {
@@ -31,6 +31,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-}
+};
 
-export default Footer
+export default Footer;
