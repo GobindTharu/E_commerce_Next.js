@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function FeaturedProductSlider() {
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.1, // 10% of the component should be visible
+    threshold: 0.1, 
   });
 
   const [sliderRef, setSliderRef] = useState(null);
@@ -21,10 +21,10 @@ export default function FeaturedProductSlider() {
     infinite: true,
     speed: 2000,
     autoplay: inView,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 3000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: false,
+    arrows: true,
     swipe: true,
     touchMove: true,
     swipeToSlide: true,
@@ -36,49 +36,49 @@ export default function FeaturedProductSlider() {
       id: 1,
       title: "Stylish Sneakers",
       shortDescription: "Explore the latest sneaker trends and fashion styles.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/shoes.png",
     },
     {
       id: 2,
       title: "Casual Wear",
       shortDescription: "Upgrade your wardrobe with trendy casual outfits.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/caps.png",
     },
     {
       id: 3,
       title: "Elegant Heels",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
       shortDescription: "Step up your fashion game with these stylish heels.",
+      featureImageURL: "/t-shirt.webp",
     },
     {
       id: 4,
       title: "Stylish Sneakers",
       shortDescription: "Explore the latest sneaker trends and fashion styles.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/tshirt.png",
     },
     {
       id: 5,
       title: "Casual Wear",
       shortDescription: "Upgrade your wardrobe with trendy casual outfits.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/laptop.webp",
     },
     {
       id: 6,
       title: "Elegant Heels",
       shortDescription: "Step up your fashion game with these stylish heels.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/caps.png",
     },
     {
       id: 7,
       title: "Stylish Sneakers",
       shortDescription: "Explore the latest sneaker trends and fashion styles.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/cap.png",
     },
     {
       id: 8,
       title: "Casual Wear",
       shortDescription: "Upgrade your wardrobe with trendy casual outfits.",
-      featureImageURL: "/random-nature-hd-wallpaper-8k4k_1272857-171435.avif",
+      featureImageURL: "/tshirt.png",
     },
   ];
 

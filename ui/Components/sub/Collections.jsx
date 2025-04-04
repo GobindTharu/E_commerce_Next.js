@@ -39,83 +39,62 @@ export default function Collections({ collections }) {
     ],
   };
 
- const collection = [
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-  {
-  title: "Laptop",
-  subTitle: "msi laptop in best deal you can shop now",
-  imageURL: "/images.jpeg",
- },
-]
+  const collection = [
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/caps.png",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/t-shirt.webp",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/shoes.png",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/laptop.webp",
+    },
+
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/shoes.png",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/tshirt.png",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/t-shirt.webp",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/shoes.png",
+    },
+    {
+      title: "Laptop",
+      subTitle: "msi laptop in best deal you can shop now",
+      imageURL: "/laptop.webp",
+    },
+  ];
 
   return (
-    <div className="overflow-hidden md:p-10 p-5 max-w- ">
+    <div className="overflow-hidden md:p-10 p-5">
       <Slider {...settings}>
         {collection.map((collection) => {
           return (
             <div className="px-2">
-              <div className="flex gap-4 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
-                <div className="w-full">
-                  <img
-                    className="h-[4rem] md:h-[9rem]"
-                    src={collection?.imageURL}
-                    alt={collection?.title} 
-                  />
-                </div>
+              <div className="flex flex-col md:flex-row gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
                 <div className="w-full flex flex-col gap-2">
                   <div className="flex flex-col gap-4">
                     <h1 className="md:text-lg text-base font-semibold">
@@ -125,13 +104,20 @@ export default function Collections({ collections }) {
                       {collection?.subTitle}
                     </h1>
                   </div>
-                  <div className="flex gap-4">
+                  <div className="flex gap-4 w-full md:w-100">
                     <Link href={`/collections/${collection?.id}`}>
                       <button className="bg-blue-500 text-white text-xs md:text-sm px-4 py-2 rounded-lg">
                         SHOP NOW
                       </button>
                     </Link>
                   </div>
+                </div>
+                <div className="w-full">
+                  <img
+                    className="h-[4rem] md:h-[9rem]"
+                    src={collection?.imageURL}
+                    alt={collection?.title}
+                  />
                 </div>
               </div>
             </div>
