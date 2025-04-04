@@ -8,21 +8,21 @@ export default function CustomerReviews() {
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       rating: 4.5,
-      imageLink: "",
+      imageLink: "/prampod.jpg",
     },
     {
       name: "Oscar Nommanee",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       rating: 5,
-      imageLink: "",
+      imageLink: "/sabin.jpg",
     },
     {
       name: "Emma Watsom",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       rating: 4.5,
-      imageLink: "",
+      imageLink: "/Amrit.jpg",
     },
   ];
   return (

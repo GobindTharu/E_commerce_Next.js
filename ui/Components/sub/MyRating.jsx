@@ -8,9 +8,7 @@ export default function MyRating({ value }) {
   useEffect(() => {
     setVisible(true);
   }, []);
-  // if (!visible) {
-  //   return <></>;
-  // }
+ 
   return (
     <Rating
       name="product-rating"

@@ -38,9 +38,6 @@ export default function Brands(brands) {
     ],
   };
 
-  // if (brands.length === 0) {
-  //   return <></>;
-  // }
   const brand = [
     {
       imageURL:
