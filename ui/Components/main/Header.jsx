@@ -7,7 +7,7 @@ import LogoutButton from "../auth/LogoutButton"
 export default function Header() {
 
   return (
-    <nav className="fixed top-14 w-full bg-opacity-65 backdrop-blur-2xl py-3 px-4 md:py-4 md:px-16 bg-gray-200 flex items-center justify-between">
+    <nav className="sticky top-18 w-full z-100  bg-opacity-0 backdrop-blur-2xl py-3 px-4 md:py-4 md:px-16 bg-gray-200 flex items-center justify-between">
       <Link href={"/"}>
       </Link>
       
