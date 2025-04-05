@@ -23,6 +23,13 @@ export const LoginForm = () => {
       return await axios.post("http://localhost:8002/user/login/", values);
     },
     onSuccess: (res) => {
+      const accessToken = res.data.accessToken;
+      const firstName = res.data.userDetails.firstName;
+      const role = res.data.userDetails.role;
+
+      window.localStorage.setItem("accessToken", accessToken);
+      window.localStorage.setItem("firstName", firstName);
+      window.localStorage.setItem("role", role);
       router.push("/");
       toast.success("login successful");
       

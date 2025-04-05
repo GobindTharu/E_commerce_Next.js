@@ -6,9 +6,9 @@ import Slider from "react-slick";
 export default function Collections({ collections }) {
   var settings = {
     dots: true,
-    infinite: false,
+    infinite: true,
     speed: 500,
-    slidesToShow: 2,
+    slidesToShow: 3,
     slidesToScroll: 2,
     initialSlide: 0,
     responsive: [
@@ -38,8 +38,7 @@ export default function Collections({ collections }) {
       },
     ],
   };
-
-  const collection = [
+ const collection = [
     {
       title: "Laptop",
       subTitle: "msi laptop in best deal you can shop now",
@@ -93,9 +92,9 @@ export default function Collections({ collections }) {
       <Slider {...settings}>
         {collection.map((collection) => {
           return (
-            <div className="px-2">
-              <div className="flex flex-col md:flex-row gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
-                <div className="w-full flex flex-col gap-2">
+            <div className="px-2 h-[18rem]">
+              <div className="flex flex-col justify-evenly md:flex-row gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
+                <div className="flex flex-col gap-2 md:w-[16rem]">
                   <div className="flex flex-col gap-4">
                     <h1 className="md:text-lg text-base font-semibold">
                       {collection?.title}
@@ -112,9 +111,9 @@ export default function Collections({ collections }) {
                     </Link>
                   </div>
                 </div>
-                <div className="w-full">
+                <div className="flex items-center justify-center w-full">
                   <img
-                    className="h-[4rem] md:h-[9rem]"
+                    className="h-full w-full bg-cover"
                     src={collection?.imageURL}
                     alt={collection?.title}
                   />

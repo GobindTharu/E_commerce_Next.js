@@ -12,7 +12,12 @@ import {
   User,
 } from "@heroui/react";
 
-export default function LogoutButton () {
+export default function ProfileButton() {
+  const handleLogout = () => {
+    window.localStorage.clear();
+    router.replace("/login");
+  };
+
   // if (!user) {
   //   return <></>;
   // }
@@ -22,18 +27,19 @@ export default function LogoutButton () {
       showArrow
       classNames={{
         base: "before:bg-default-200", // change arrow background
-        content: "p-0 border-small border-divider bg-background",
+        content:
+          " relative p-0 border-small border-divider bg-background right-6",
       }}
       radius="sm"
     >
       <DropdownTrigger>
         <Button disableRipple variant="" className="border-2 rounded-full">
-          Open Menu
+          Profile
         </Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Custom item styles"
-        className="p-3"
+        className="p-3 bg-gray-300 gap-2 h-[20rem]"
         disabledKeys={["profile"]}
         itemClasses={{
           base: [
@@ -49,23 +55,23 @@ export default function LogoutButton () {
           ],
         }}
       >
-        <DropdownSection showDivider aria-label="Profile & Actions">
-          <DropdownItem
-            key="profile"
-            isReadOnly
-            className="h-14 gap-2"
-          >
+        <DropdownSection
+          showDivider
+          aria-label="Profile & Actions"
+          className="py-2"
+        >
+          <DropdownItem key="profile" isReadOnly className="h-20 gap-2">
             <User
               avatarProps={{
-                size: "sm",
-                src: "https://avatars.githubusercontent.com/u/30373425?v=4",
+                size: "md",
+                src: "/prampod.jpg",
               }}
               classNames={{
                 name: "text-default-600",
                 description: "text-default-500",
               }}
-              description="@jrgarciadev"
-              name="Junior Garcia"
+              name="Pramod Tharu"
+              description="@pramodtharu"
             />
           </DropdownItem>
           <DropdownItem key="dashboard">Dashboard</DropdownItem>
@@ -106,23 +112,12 @@ export default function LogoutButton () {
           <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
           <DropdownItem key="logout">
             {" "}
-          <DropdownItem key="logout">Log Out</DropdownItem>
             <button
-              onClick={async () => {
-                // if (!confirm("Are you sure?")) return;
-                try {
-                  await toast.promise({/*signOut(auth), */},{
-                    error: (e) => e?.message,
-                    loading: "Loading...",
-                    success: "Successfully Logged out",
-                  });
-                } catch (error) {
-                  toast.error(error?.message);
-                }
-              }}
+              onClick={handleLogout}
               className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
             >
               <LogOut size={14} />
+            <DropdownItem key="logout">Log Out</DropdownItem>
             </button>
           </DropdownItem>
         </DropdownSection>
