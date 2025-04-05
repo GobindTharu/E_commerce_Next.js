@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import Link from "next/link";
 import SearchBar from "../sub/Search";
+import LoginButton from "../sub/LoginButton";
 
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -73,11 +74,8 @@ export const NavBar = () => {
               <Link href={link} className="w-full block px-4 py-2">{name}</Link>
             </MenuItem>
           ))}
-          <MenuItem className="w-full text-center">
-            <Link href="/login" className="w-full">
-              <Button variant="contained" color="primary" fullWidth>Login</Button>
-            </Link>
-          </MenuItem>
+          
+          <LoginButton/>
         </Menu>
       </div>
     </nav>

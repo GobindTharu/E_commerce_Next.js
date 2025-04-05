@@ -10,6 +10,7 @@ import Footer from "../Components/main/Footer";
 import SubHeader from "../Components/main/SubHeader";
 import Collections from "../Components/sub/Collections";
 import Header from "../Components/main/Header";
+import FAQSection from "../Components/sub/FAQSection";
 
 export default function Home() {
   return (
@@ -23,6 +24,7 @@ export default function Home() {
       <ProductsGridView />
       <CustomerReviews />
       <Brands />
+      <FAQSection/>
       <Footer />
     </main>
   );

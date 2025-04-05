@@ -5,10 +5,10 @@ import Slider from "react-slick";
 export default function Brands(brands) {
   var settings = {
     dots: true,
-    infinite: false,
-    speed: 500,
+    infinite: true,
+    speed: 300,
     slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
       {
@@ -63,9 +63,69 @@ export default function Brands(brands) {
       imageURL:
         "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
     },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
+    {
+      imageURL:
+        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+    },
   ];
   return (
-    <div className="flex flex-row gap-8 justify-center overflow-hidden md:p-10 p-5">
+    <div className="overflow-hidden md:p-10 p-5">
       <Slider {...settings}>
         {brand.map((item) => {
           return (
@@ -75,7 +135,7 @@ export default function Brands(brands) {
                   <img
                     className="h-full w-full object-cover"
                     src={item.imageURL}
-                    alt=""
+                    alt="Image"
                   />
                 </div>
               </div>

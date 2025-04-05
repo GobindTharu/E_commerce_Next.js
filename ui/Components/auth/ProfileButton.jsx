@@ -11,16 +11,24 @@ import {
   Button,
   User,
 } from "@heroui/react";
+import { useRouter } from "next/navigation";
 
 export default function ProfileButton() {
+  const router = useRouter();
+
   const handleLogout = () => {
     window.localStorage.clear();
     router.replace("/login");
+    toast.success("Logout Successful")
   };
 
-  // if (!user) {
-  //   return <></>;
-  // }
+  const token = localStorage.getItem("accessToken");
+
+ 
+
+  if (!token) {
+    return <></>;
+  }
 
   return (
     <Dropdown
