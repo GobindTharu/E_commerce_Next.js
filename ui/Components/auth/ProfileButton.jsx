@@ -10,7 +10,8 @@ import {
   DropdownItem,
   Button,
   User,
-} from "@heroui/react";
+} from "@nextui-org/react";
+
 
 import { useRouter } from "next/navigation";
 
