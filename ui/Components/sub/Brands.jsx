@@ -41,88 +41,57 @@ export default function Brands(brands) {
   const brand = [
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
+    },{
+      imageURL:
+        "/nike.png",
+    },{
+      imageURL:
+        "/nike.png",
+    },{
+      imageURL:
+        "/nike.png",
+    },{
+      imageURL:
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
     {
       imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
+        "/nike.png",
     },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
-    {
-      imageURL:
-        "https://emilly-store1.myshopify.com/cdn/shop/files/bakery-testi-1.jpg?v=1721992196&width=512",
-    },
+    
   ];
   return (
     <div className="overflow-hidden md:p-10 p-5">

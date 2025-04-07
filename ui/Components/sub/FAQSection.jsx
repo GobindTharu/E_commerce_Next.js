@@ -11,18 +11,23 @@ import { motion } from 'framer-motion'
 
 const faqs = [
   {
-    question: 'What technologies do you use?',
-    answer: 'I work with the MERN stack, including MongoDB, Express.js, React, and Node.js. I also use Tailwind CSS, Next.js, and other frontend tools.',
+    question: 'How do I track my order?',
+    answer: 'You can track your order by logging into your account or using the tracking number provided in your order confirmation email. .',
   },
   {
-    question: 'Are you open to internship opportunities?',
-    answer: 'Yes! I’m actively seeking frontend development internships to grow my skills and contribute to a team.',
+    question: 'Can i change or Cancel my order?',
+    answer: "No, you can't  it against our term and conditions we have our own Policy.",
   },
   {
-    question: 'Where are you currently studying?',
-    answer: 'I’m pursuing a B.Sc. CSIT at Bhairahawa Multiple Campus, Tribhuvan University.',
+    question: 'What payment methods do you accept ?',
+    answer: 'We accept eSewa, Khalti, IME pay, FonePay, SmartQR any Digital pay platform in Nepal. ',
+  },
+  {
+    question: 'What is your return/exchange policy?',
+    answer: 'Our return/exchange policy is , 7-day returns for full refund. ',
   },
 ]
+
 
 export default function FAQSection() {
   return (
