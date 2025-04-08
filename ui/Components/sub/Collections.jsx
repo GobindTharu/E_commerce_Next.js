@@ -89,7 +89,7 @@ export default function Collections() {
     <div className="overflow-hidden md:p-10 p-5">
       <Slider {...settings}>
         {collection.map((item, index) => (
-          <div key={index} className="px-2 h-[18rem]">
+          <div key={index} className="px-2 h-[19rem]">
             <div className="flex flex-col justify-evenly md:flex-row gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
               <div className="flex flex-col gap-2 md:w-[16rem]">
                 <div className="flex flex-col gap-4">
@@ -108,7 +108,7 @@ export default function Collections() {
               </div>
               <div className="flex items-center justify-center w-full">
                 <img
-                  className="h-full w-full object-contain"
+                  className="h-40 w-40 md:h-full md:w-full mdobject-contain"
                   src={item?.imageURL}
                   alt={item?.title}
                 />

@@ -1,7 +1,12 @@
-import React from "react";
+"use client"
+import { Button,  MenuItem } from "@mui/material";
+import PersonIcon from "@mui/icons-material/Person";
+import Link from "next/link";
 
-const LoginButton = () => {
-  const token = localStorage.getItem("accessToken");
+
+
+export const LoginButton = () => {
+  const token = window.localStorage.getItem("accessToken");
 
   if (!token) {
     return (
@@ -18,4 +23,21 @@ const LoginButton = () => {
   }
 };
 
-export default LoginButton;
+
+import React from "react";
+
+export const LoginButton1 = () => {
+  const token = localStorage.getItem("accessToken");
+
+  if (!token) {
+    return (
+      <Link href="/login" passHref>
+      <Button variant="contained" color="primary" endIcon={<PersonIcon />}>Login</Button>
+    </Link>
+    );
+  } else {
+    return (<></>);
+  }
+};
+
+

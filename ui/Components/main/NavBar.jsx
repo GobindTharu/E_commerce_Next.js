@@ -2,18 +2,11 @@
 import { useEffect, useState } from "react";
 import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import PersonIcon from "@mui/icons-material/Person";
 import Link from "next/link";
 import SearchBar from "../sub/Search";
-import LoginButton from "../sub/LoginButton";
+import { LoginButton, LoginButton1 } from "../sub/LoginButton";
 
 export const NavBar = () => {
-  const [isTokenPresent, setIsTokenPresent] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("accessToken");
-    setIsTokenPresent(!!token); // set to true if token exists
-  }, []);
 
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
@@ -63,17 +56,7 @@ export const NavBar = () => {
       <div className="hidden lg:flex items-center justify-center gap-2">
         <SearchBar />
 
-        {isTokenPresent && (
-          <Link href="/login" passHref>
-            <Button
-              variant="contained"
-              color="primary"
-              endIcon={<PersonIcon />}
-            >
-              Login
-            </Button>
-          </Link>
-        )}
+        <LoginButton1 />
       </div>
 
       {/* Mobile Menu */}
