@@ -1,5 +1,8 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import {Discount }  from "../sub/Discount"
+
 
 const Header = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -73,12 +76,10 @@ const Header = () => {
         </div>
         <div className="flex space-x-1">
         <span>
-          Limited Offer! 16% Discount for the First 100 Random Visitors on Our
+          Limited Offer! 16% Discount for the First Visitors on Our
           Website
         </span>
-        <button className="bg-blue-500 text-white px-3 py-1 ml-4 rounded">
-          Learn more
-        </button>
+        <Discount />
         </div>
       </div>
     </header>

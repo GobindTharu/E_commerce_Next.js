@@ -13,14 +13,24 @@ export default function FavoriteButton() {
 
   const handleClick = async () => {
     setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      toast.success("Adding Successful");
+    }, 100);
   };
   return (
     <Button
-      isLoading={isLoading}
-      isDisabled={isLoading}
+      disabled={isLoading}
       onClick={handleClick}
-      className="rounded-full"
-      isIconOnly
+      sx={{
+        width: 32,
+        height: 32,
+        width: "20px",
+        border: "2px solid blue",
+        borderRadius: "50%",
+        padding: 2,
+        minWidth: 0,
+      }}
       size="sm"
     >
       <FavoriteBorderOutlinedIcon fontSize="small" />

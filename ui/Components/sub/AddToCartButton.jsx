@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useRouter } from "next/navigation";
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 
 export default function AddToCartButton({ type }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -13,15 +13,23 @@ export default function AddToCartButton({ type }) {
 
   const handleClick = async () => {
     setIsLoading(true);
+    // Simulate async logic
+    setTimeout(() => {
+      setIsLoading(false);
+      toast.success("Added to cart!");
+    }, 500);
   };
 
   return (
     <Button
-      isLoading={isLoading}
-      isDisabled={isLoading}
+      disabled={isLoading}
       onClick={handleClick}
       variant="outlined"
-      size="sm"
-    > Add To Cart </Button>
+      size="small"
+      sx={{padding: "8px"}}
+      startIcon={isLoading ? <CircularProgress size={16} /> : <AddShoppingCartIcon />}
+    >
+      {isLoading ? "Adding..." : "Add To Cart"}
+    </Button>
   );
 }
