@@ -1,15 +1,9 @@
 import mongoose from "mongoose";
 
-const dbName = "Chaudhary-Hardware";
-const dbUserName = "mern";
-const dbPassword = encodeURIComponent("mern@123");   // understand special characters @,$
-const dbHost = "school.xg9dy.mongodb.net";
-const dbOptions = "retryWrites=true&w=majority&appName=School";
-const url = `mongodb+srv://${dbUserName}:${dbPassword}@${dbHost}/${dbName}?${dbOptions}`;
 
 const connectDB = async () => {
   try {
-    await mongoose.connect(url);
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("DB connection established...");
   } catch (error) {
     console.log("DB connection failed...");

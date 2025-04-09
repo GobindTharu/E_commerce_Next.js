@@ -2,26 +2,30 @@ import express from "express";
 import ConnectDb from "./user/user.database.js";
 import cors from "cors";
 import { userController } from "./user/user.controller.js";
+import dotenv from 'dotenv';  // Import dotenv using ES Modules syntax
+
 
 //? create app
 const app = express();
 
 //? to make understand
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:3000"
-}
-));
+dotenv.config();  // Load the environment variables
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+);
 
 //? connect Database
 await ConnectDb();
 //?  register Routers / Controller
-app.use(userController)
-
+app.use(userController);
 
 //?Network
-const PORT = 8002;
+const Port = process.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`App is listening on port : ${PORT}`);
+app.listen(Port, () => {
+  console.log(`App is listening on port : ${Port}`);
 });
