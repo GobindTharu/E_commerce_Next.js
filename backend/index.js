@@ -11,6 +11,7 @@ const app = express();
 app.use(express.json());
 dotenv.config(); // Load the environment variables
 
+app.use(cors()); // Enable CORS for all routes
 app.use(
   cors({
     origin: "https://e-commerce-next-js-dmeh.vercel.app/",
