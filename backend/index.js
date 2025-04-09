@@ -20,10 +20,15 @@ app.use(
   })
 );
 
+
+app.post("/login", (req, res) => {
+  res.json({ message: "Login successful" });
+});
+
 //? connect Database
 await ConnectDb();
 //?  register Routers / Controller
-app.use(userController);
+// app.use(userController);
 
 //?Network
 const Port = process.env.PORT;
