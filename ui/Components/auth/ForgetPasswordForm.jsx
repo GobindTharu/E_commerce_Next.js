@@ -44,7 +44,7 @@ export const ForgetPasswordForm = () => {
   const { mutate: verifyOtpMutate, isLoading: verifyingOtp } = useMutation({
     mutationFn: async () => {
       const response = await axios.post(
-        "https://e-commerce-next-js-tau.vercel.app/user/verify-otp/",
+        "https://e-commerce-next-js-ashen.vercel.app/user/verify-otp/",
         {
           email,
           otp,
