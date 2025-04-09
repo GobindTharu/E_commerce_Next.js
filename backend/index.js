@@ -13,8 +13,9 @@ dotenv.config(); // Load the environment variables
 
 app.use(
   cors({
-    origin: "https://e-commerce-next-js-dmeh.vercel.app/",
-    methods: ["POST", "GET"],
+    origin: "https://e-commerce-next-js-dmeh.vercel.app",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
