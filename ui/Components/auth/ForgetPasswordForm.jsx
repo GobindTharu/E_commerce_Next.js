@@ -19,7 +19,10 @@ export const ForgetPasswordForm = () => {
   // Send OTP mutation
   const { mutate: sendOtpMutate } = useMutation({
     mutationFn: async (email) => {
-      const response = await axios.post("http://localhost:8002/user/send-otp/", { email });
+      const response = await axios.post(
+        "http://localhost:8002/user/send-otp/",
+        { email }
+      );
       if (response.data.success) {
         return response.data;
       } else {
@@ -40,10 +43,13 @@ export const ForgetPasswordForm = () => {
   // Verify OTP mutation
   const { mutate: verifyOtpMutate, isLoading: verifyingOtp } = useMutation({
     mutationFn: async () => {
-      const response = await axios.post("http://localhost:8002/user/verify-otp/", {
-        email,
-        otp,
-      });
+      const response = await axios.post(
+        "https://e-commerce-next-js-ashy.vercel.app/user/verify-otp/",
+        {
+          email,
+          otp,
+        }
+      );
       if (response.data.success) {
         return response.data;
       } else {
@@ -77,7 +83,10 @@ export const ForgetPasswordForm = () => {
     <main className="w-full flex justify-center items-center bg-gray-300 md:p-24 p-10 min-h-screen">
       <section className="flex flex-col gap-3 w-full md:w-130">
         <div className="flex justify-center gap2">
-          <Typography variant="h5" className="flex items-center justify-center font-serif text-gray-600">
+          <Typography
+            variant="h5"
+            className="flex items-center justify-center font-serif text-gray-600"
+          >
             <img src="/logo.png" alt="logo" className="h-10 w-10" />
             B-MANDU
           </Typography>
@@ -134,7 +143,11 @@ export const ForgetPasswordForm = () => {
                 className="w-full px-3 py-2 mb-4 border rounded-md focus:outline-none"
               />
               <div className="flex justify-end gap-2">
-                <Button onClick={handleClose} variant="outlined" color="secondary">
+                <Button
+                  onClick={handleClose}
+                  variant="outlined"
+                  color="secondary"
+                >
                   Cancel
                 </Button>
                 <Button

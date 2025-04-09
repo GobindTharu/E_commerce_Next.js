@@ -14,7 +14,7 @@ dotenv.config(); // Load the environment variables
 app.use(
   cors({
     origin: "https://b-mandu.balgobindchaudhary.com.np/",
-    methods: ["POST","GET", "PUT", "DELETE"],
+    methods: ["POST", "GET"],
   })
 );
 
