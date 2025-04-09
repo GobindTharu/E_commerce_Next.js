@@ -24,7 +24,7 @@ export default function Home() {
       <ProductsGridView />
       <CustomerReviews />
       <Brands />
-      <FAQSection/>
+      <FAQSection />
       <Footer />
     </main>
   );

@@ -6,12 +6,11 @@ import Link from "next/link";
 import { data } from "../../constants/constants";
 
 export default function HeaderClientButtons() {
- 
   return (
     <div className="flex items-center gap-1">
       <Link href={`/favorites`}>
         {(data?.favorites?.length ?? 0) != 0 && (
-       <Badge
+          <Badge
             variant="solid"
             size="sm"
             className="text-white bg-red-500 text-[8px]"

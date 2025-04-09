@@ -1,8 +1,8 @@
 import Link from "next/link";
-import FavoriteButton from "../sub/FavoriteButton.jsx";
-import AddToCartButton from "../sub/AddToCartButton";
+import FavoriteButton from "./FavoriteButton.jsx.jsx";
+import AddToCartButton from "./AddToCartButton.jsx";
 import { Suspense } from "react";
-import MyRating from "../sub/MyRating";
+import MyRating from "./MyRating.jsx";
 
 const product = [
   {
@@ -193,8 +193,6 @@ const product = [
     image: "https://example.com/images/samsung-gal",
   },
 ];
-
-
 
 export default function ProductsGridView({ products }) {
   return (

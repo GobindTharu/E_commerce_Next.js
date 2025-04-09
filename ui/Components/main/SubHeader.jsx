@@ -5,16 +5,13 @@ import AdminButton from "../sub/AdminButton";
 import ProfileButton from "../auth/ProfileButton";
 
 export default function SubHeader() {
-  
-
   return (
     <nav className="sticky top-18 w-full z-100  bg-opacity-0 backdrop-blur-2xl py-3 px-4 md:py-4 md:px-16 bg-gray-200 flex items-center justify-between">
-      <Link href={"/"}>
-      </Link>
-      
+      <Link href={"/"}></Link>
+
       <div className="flex items-center gap-1">
-          <AdminButton />
-          <HeaderClientButtons />
+        <AdminButton />
+        <HeaderClientButtons />
         <Link href={`/account`}>
           <button
             title="My Account"
@@ -23,7 +20,7 @@ export default function SubHeader() {
             <UserCircle2 size={14} />
           </button>
         </Link>
-          <ProfileButton />
+        <ProfileButton />
       </div>
     </nav>
   );

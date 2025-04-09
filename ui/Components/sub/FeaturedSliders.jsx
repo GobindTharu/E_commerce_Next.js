@@ -3,7 +3,7 @@
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import Slider from "react-slick";
-import FavoriteButton from "./FavoriteButton.jsx";
+import FavoriteButton from "./FavoriteButton.jsx.jsx";
 import AddToCartButton from "./AddToCartButton.jsx";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
@@ -11,7 +11,7 @@ import { useState } from "react";
 export default function FeaturedProductSlider() {
   const { ref, inView } = useInView({
     triggerOnce: false,
-    threshold: 0.1, 
+    threshold: 0.1,
   });
 
   const [sliderRef, setSliderRef] = useState(null);
@@ -83,10 +83,7 @@ export default function FeaturedProductSlider() {
   ];
 
   return (
-    <div
-      ref={ref}
-      className="w-full flex justify-center items-center py-6"
-    >
+    <div ref={ref} className="w-full flex justify-center items-center py-6">
       <div ref={ref} className="w-full max-w-7xl">
         <Slider ref={setSliderRef} {...settings}>
           {featuredProductsData.map((product) => (
@@ -116,7 +113,7 @@ export default function FeaturedProductSlider() {
                         Buy Now
                       </button>
                     </Link>
-                    <AddToCartButton  type="large" />
+                    <AddToCartButton type="large" />
                     <FavoriteButton />
                   </div>
                 </div>

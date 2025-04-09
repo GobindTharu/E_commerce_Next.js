@@ -7,7 +7,6 @@ import SearchBar from "../sub/Search";
 import { LoginButton, LoginButton1 } from "../sub/LoginButton";
 
 export const NavBar = () => {
-
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
