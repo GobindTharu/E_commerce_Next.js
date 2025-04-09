@@ -12,7 +12,6 @@ import {
   User,
 } from "@nextui-org/react";
 
-
 import { useRouter } from "next/navigation";
 
 export default function ProfileButton() {
@@ -21,16 +20,8 @@ export default function ProfileButton() {
   const handleLogout = () => {
     window.localStorage.clear();
     router.replace("/login");
-    toast.success("Logout Successful")
+    toast.success("Logout Successful");
   };
-
-  const token = localStorage.getItem("accessToken");
-
- 
-
-  if (!token) {
-    return <></>;
-  }
 
   return (
     <Dropdown
@@ -127,7 +118,7 @@ export default function ProfileButton() {
               className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
             >
               <LogOut size={14} />
-            <DropdownItem key="logout">Log Out</DropdownItem>
+              <DropdownItem key="logout">Log Out</DropdownItem>
             </button>
           </DropdownItem>
         </DropdownSection>
