@@ -14,7 +14,8 @@ dotenv.config();  // Load the environment variables
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "https://b-mandu.balgobindchaudhary.com.np/",
+
   })
 );
 
