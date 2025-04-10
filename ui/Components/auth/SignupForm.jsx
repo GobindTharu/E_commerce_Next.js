@@ -25,7 +25,7 @@ const SignupForm = () => {
   const { mutate } = useMutation({
     mutationKey: ["signup-user"],
     mutationFn: async (values) => {
-      return await axios.post("https://e-commerce-next-js-ashen.vercel.app/user/signup/", values);
+      return await axios.post("https://localhost:8002/user/signup/", values);
     },
     onSuccess: (res) => {
       router.push("/login");

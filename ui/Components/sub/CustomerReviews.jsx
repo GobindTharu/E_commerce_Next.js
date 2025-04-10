@@ -4,21 +4,21 @@ import { Rating } from "@mui/material";
 export default function CustomerReviews() {
   const list = [
     {
-      name: "Penny albritoon",
+      name: "Pramod Tharu",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       rating: 4.5,
       imageLink: "/prampod.jpg",
     },
     {
-      name: "Oscar Nommanee",
+      name: "Sabin Chaudhary",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       rating: 5,
       imageLink: "/sabin.jpg",
     },
     {
-      name: "Emma Watsom",
+      name: "Amrit Tharu",
       message:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt",
       rating: 4.5,

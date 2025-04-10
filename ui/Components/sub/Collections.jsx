@@ -8,18 +8,18 @@ import "slick-carousel/slick/slick-theme.css";
 export default function Collections() {
   const collection = [
     {
-      title: "Laptop",
-      subTitle: "MSI laptop in best deal you can shop now",
+      title: "Cap",
+      subTitle: "Caps best deal you can shop now",
       imageURL: "/caps.png",
     },
     {
-      title: "Laptop",
-      subTitle: "MSI laptop in best deal you can shop now",
+      title: "T-Shirt",
+      subTitle: "T-shirt in best deal you can shop now",
       imageURL: "/t-shirt.webp",
     },
     {
-      title: "Laptop",
-      subTitle: "MSI laptop in best deal you can shop now",
+      title: "Stylish Sneakers",
+      subTitle: "Shoes in best deal you can shop now",
       imageURL: "/shoes.png",
     },
     {
@@ -28,13 +28,13 @@ export default function Collections() {
       imageURL: "/laptop.webp",
     },
     {
-      title: "Laptop",
-      subTitle: "MSI laptop in best deal you can shop now",
+      title: "Converse",
+      subTitle: "Shoes in best deal you can shop now",
       imageURL: "/shoes.png",
     },
     {
-      title: "Laptop",
-      subTitle: "MSI laptop in best deal you can shop now",
+      title: "Club Juearsy",
+      subTitle: " in best deal you can shop now",
       imageURL: "/tshirt.png",
     },
   ];

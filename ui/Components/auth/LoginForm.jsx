@@ -20,7 +20,7 @@ export const LoginForm = () => {
   const { mutate } = useMutation({
     mutationKey: ["login-user"],
     mutationFn: async (values) => {
-      return await axios.post("https://e-commerce-next-js-ashen.vercel.app/user/login/", values);
+      return await axios.post("https://localhost:8002/user/login/", values);
     },
     
     onSuccess: (res) => {
@@ -36,7 +36,7 @@ export const LoginForm = () => {
       
     },
     onError: (error) => {
-      toast.error("Failed to login");
+      toast.error("Invalid Credential");
     },
   });
   return (
