@@ -1,14 +1,10 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
-const AuthGuard = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+const AuthGuard = ({ children }) => {
   const router = useRouter();
-  const [isAuthenticated, setIsAuthenticated] = React.useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   useEffect(() => {
     const accessToken = window.localStorage.getItem("accessToken");

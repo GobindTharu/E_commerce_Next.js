@@ -26,7 +26,7 @@ export const NavBar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 left-0 w-full backdrop-blur-md  exit bg-gray-300 py-3 px-4 sm:px-6 md:px-16 flex justify-between items-center z-50">
+    <nav className="sticky top-0 left-0 w-full backdrop-blur-md  exit bg-gray-300 py-0 md:py-2  px-4 sm:px-6 md:px-16 flex justify-between items-center z-50">
       {/* Logo */}
       <Link href="/" className="flex items-center text-xl font-serif">
         <img

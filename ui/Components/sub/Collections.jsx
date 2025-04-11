@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Collections() {
@@ -47,11 +47,7 @@ export default function Collections() {
     slidesToShow: 3,
     slidesToScroll: 2,
     initialSlide: 0,
-    customPaging: function (i) {
-      return (
-        <div className="w-full h-full m-6 md:m-3 hover:bg-gray-700  hover:text-white flex justify-center text-md text-black font-bold  border-1 rounded-full  items-center">{i + 1}</div>
-      );
-    },
+
     appendDots: (dots) => (
       <div>
         <ul className="flex justify-center gap-2 mt-4">{dots}</ul>
@@ -93,7 +89,9 @@ export default function Collections() {
             <div className="flex flex-col justify-evenly md:flex-row gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
               <div className="flex flex-col gap-2 md:w-[16rem]">
                 <div className="flex flex-col gap-4">
-                  <h1 className="md:text-lg text-base font-semibold">{item.title}</h1>
+                  <h1 className="md:text-lg text-base font-semibold">
+                    {item.title}
+                  </h1>
                   <h1 className="text-gray-600 text-xs md:text-sm max-w-96 line-clamp-2">
                     {item.subTitle}
                   </h1>
