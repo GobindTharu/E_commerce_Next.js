@@ -44,7 +44,7 @@ export const ForgetPasswordForm = () => {
   const { mutate: verifyOtpMutate, isLoading: verifyingOtp } = useMutation({
     mutationFn: async () => {
       const response = await axios.post(
-        "https://localhost:8002/user/verify-otp/",
+        "http://localhost:8002/user/verify-otp/",
         {
           email,
           otp,

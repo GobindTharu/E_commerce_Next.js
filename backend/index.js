@@ -11,10 +11,9 @@ const app = express();
 app.use(express.json());
 dotenv.config(); // Load the environment variables
 
-app.use(cors()); // Enable CORS for all routes
 app.use(
   cors({
-    origin: "https://localhost:3000/",
+    origin: "http://localhost:3000",
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -28,7 +27,7 @@ app.post("/login", (req, res) => {
 //? connect Database
 await ConnectDb();
 //?  register Routers / Controller
-// app.use(userController);
+app.use(userController);
 
 //?Network
 const Port = process.env.PORT;
