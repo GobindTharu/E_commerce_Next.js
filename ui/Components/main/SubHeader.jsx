@@ -12,14 +12,6 @@ export default function SubHeader() {
       <div className="flex items-center gap-1">
         <AdminButton />
         <HeaderClientButtons />
-        <Link href={`/account`}>
-          <button
-            title="My Account"
-            className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
-          >
-            <UserCircle2 size={14} />
-          </button>
-        </Link>
         <ProfileButton />
       </div>
     </nav>

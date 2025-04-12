@@ -82,12 +82,19 @@ export default function Collections() {
   };
 
   return (
-    <div className="overflow-hidden md:p-10 p-5">
+    <div className=" m-auto items-center overflow-hidden md:p-10 p-5">
       <Slider {...settings}>
         {collection.map((item, index) => (
           <div key={index} className="px-2 h-[19rem]">
-            <div className="flex flex-col justify-evenly md:flex-row gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
-              <div className="flex flex-col gap-2 md:w-[16rem]">
+            <div className="flex flex-col justify-evenly md:flex-row md:flex-reverse gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
+              <div className="flex items-center justify-center w-full">
+                <img
+                  className="h-30 w-30 md:h-50 md:w-50 md:object-cover"
+                  src={item?.imageURL}
+                  alt={item?.title}
+                />
+              </div>
+              <div className="flex flex-col gap-2 md:w-[12rem]">
                 <div className="flex flex-col gap-4">
                   <h1 className="md:text-lg text-base font-semibold">
                     {item.title}
@@ -97,19 +104,12 @@ export default function Collections() {
                   </h1>
                 </div>
                 <div className="flex gap-4 w-full md:w-100">
-                  <Link href={`/collections/${item?.id}`}>
+                  <Link href={``}>
                     <button className="bg-blue-500 text-white text-xs md:text-sm px-4 py-2 rounded-lg">
                       SHOP NOW
                     </button>
                   </Link>
                 </div>
-              </div>
-              <div className="flex items-center justify-center w-full">
-                <img
-                  className="h-40 w-40 md:h-full md:w-full mdobject-contain"
-                  src={item?.imageURL}
-                  alt={item?.title}
-                />
               </div>
             </div>
           </div>

@@ -26,7 +26,7 @@ export default function AddToCartButton({ type }) {
       onClick={handleClick}
       variant="outlined"
       size="small"
-      sx={{padding: "8px"}}
+      sx={{padding: "6px"}}
       startIcon={isLoading ? <CircularProgress size={16} /> : <AddShoppingCartIcon />}
     >
       {isLoading ? "Adding..." : "Add To Cart"}

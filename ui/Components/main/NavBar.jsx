@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import SearchBar from "../sub/Search";
 import { LoginButton, LoginButton1 } from "../sub/LoginButton";
+import Logo from "../sub/Logo";
 
 export const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -28,14 +29,7 @@ export const NavBar = () => {
   return (
     <nav className="sticky top-0 left-0 w-full backdrop-blur-md  exit bg-gray-300 py-0 md:py-2  px-4 sm:px-6 md:px-16 flex justify-between items-center z-50">
       {/* Logo */}
-      <Link href="/" className="flex items-center text-xl font-serif">
-        <img
-          src="/logo.png"
-          alt="B-MANDU Logo"
-          className="h-9 w-9 md:h-12 md:w-12"
-        />
-        <span className="ml-2 font-bold">B-MANDU</span>
-      </Link>
+   <Logo/>
 
       {/* Desktop Menu */}
       <div className="hidden lg:flex items-center gap-6 px-2 md:px-16 ">

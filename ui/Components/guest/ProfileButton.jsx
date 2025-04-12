@@ -1,6 +1,6 @@
 "use client";
 
-import { LogOut, PlusIcon } from "lucide-react";
+import { LogOut, PlusIcon, UserCircle2} from "lucide-react";
 import toast from "react-hot-toast";
 import {
   Dropdown,
@@ -13,6 +13,7 @@ import {
 } from "@nextui-org/react";
 
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function ProfileButton() {
   const router = useRouter();
@@ -27,15 +28,20 @@ export default function ProfileButton() {
     <Dropdown
       showArrow
       classNames={{
-        base: "before:bg-default-200", // change arrow background
+        base: "before:bg-default-200",
         content:
           " relative p-0 border-small border-divider bg-background right-6",
       }}
       radius="sm"
     >
       <DropdownTrigger>
-        <Button disableRipple variant="" className="border-2 rounded-full">
-          Profile
+        <Button disableRipple variant="">
+          <button
+            title="My Account"
+            className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
+          >
+            <UserCircle2 size={22} />
+          </button>
         </Button>
       </DropdownTrigger>
       <DropdownMenu

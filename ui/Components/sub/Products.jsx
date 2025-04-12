@@ -18,7 +18,7 @@ const sampleProducts = [
     orders: 2,
   },
   {
-    id: 1,
+    id: 2,
     title: "T-Shirt",
     price: 1200,
     salePrice: 1000,
@@ -29,7 +29,7 @@ const sampleProducts = [
     orders: 2,
   },
   {
-    id: 1,
+    id: 3,
     title: "Laptop",
     price: 1200,
     salePrice: 1000,
@@ -41,7 +41,7 @@ const sampleProducts = [
   },
 
   {
-    id: 1,
+    id: 4,
     title: "Caps",
     price: 1200,
     salePrice: 1000,
@@ -51,14 +51,25 @@ const sampleProducts = [
     stock: 10,
     orders: 2,
   },
- 
- 
+  
+  
   {
-    id: 1,
+    id: 5,
     title: "Iphone",
     price: 1200,
     salePrice: 1000,
     featureImageURL: "/iphone.webp",
+    shortDescription:
+    "Stylish  Sneaker with Sporty Look features and Runner Tested.",
+    stock: 10,
+    orders: 2,
+  },
+  {
+    id: 6,
+    title: "Caps",
+    price: 1200,
+    salePrice: 1000,
+    featureImageURL: "/caps.png",
     shortDescription:
       "Stylish  Sneaker with Sporty Look features and Runner Tested.",
     stock: 10,
@@ -72,7 +83,7 @@ export default function ProductsGridView({ products = sampleProducts }) {
     <section className="w-full flex justify-center">
       <div className="flex flex-col gap-5 max-w-[1200px] w-full p-5">
         <h1 className="text-center font-semibold text-lg">Products</h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map((item ,index) => (
             <ProductCard key={index} product={item} />
           ))}
@@ -113,8 +124,8 @@ export function ProductCard({ product }) {
         {product.shortDescription}
       </p>
 
-      <Suspense fallback={<div className="text-xs text-gray-400">Loading rating...</div>}>
-        <RatingReview product={product} />
+      <Suspense>
+        <RatingReview />
       </Suspense>
 
       {product.stock <= (product.orders ?? 0) && (
@@ -133,12 +144,12 @@ export function ProductCard({ product }) {
   );
 }
 
-async function RatingReview({ product }) {
-  const counts = await getProductReviewCounts(product.id); 
+function RatingReview({ product }) {
+  const counts =  getProductReviewCounts(); 
     return (
     <div className="flex gap-2 items-center text-xs text-gray-500">
-      <MyRating value={counts?.averageRating ?? 0} />
-      <span>{counts?.averageRating?.toFixed(1)} ({counts?.totalReviews})</span>
+      <MyRating/>
+      {/* <span>{counts.averageRating?.toFixed(1)} ({counts?.totalReviews})</span> */}
     </div>
   );
 }
