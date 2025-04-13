@@ -35,14 +35,12 @@ export default function ProfileButton() {
       radius="sm"
     >
       <DropdownTrigger>
-        <Button disableRipple variant="">
           <button
             title="My Account"
             className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
           >
             <UserCircle2 size={22} />
           </button>
-        </Button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Custom item styles"

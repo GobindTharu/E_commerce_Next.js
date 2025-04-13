@@ -1,11 +1,11 @@
-import React from "react";
+"use client";
 
-const page = () => {
+export default function Page() {
   return (
-    <main>
-      <div>Admin Panel</div>
+    <main className="flex flex-col gap-6 p-5">
+      <div className="flex flex-col md:flex-row gap-5">
+        <OrdersChart />
+      </div>
     </main>
   );
-};
-
-export default page;
+}
