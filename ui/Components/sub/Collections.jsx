@@ -83,6 +83,9 @@ export default function Collections() {
 
   return (
     <div className=" m-auto items-center overflow-hidden md:p-10 p-5">
+      <div className="flex justify-center w-full my-1 md:my-16">
+        <h1 className="text-lg font-bold uppercase">Collections</h1>
+      </div>
       <Slider {...settings}>
         {collection.map((item, index) => (
           <div key={index} className="px-2 h-[19rem]">

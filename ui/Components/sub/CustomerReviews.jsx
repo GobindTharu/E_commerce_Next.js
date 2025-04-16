@@ -27,8 +27,8 @@ export default function CustomerReviews() {
   ];
   return (
     <section className="flex justify-center">
-      <div className="w-full p-5 md:max-w-[900px] flex flex-col gap-3">
-        <h1 className="text-center font-semibold text-xl">
+      <div className="w-full p-5 md:max-w-[900px] flex flex-col gap-3 ">
+        <h1 className="text-center font-semibold text-xl uppercase my-1 md:my-16">
           Our customers love
         </h1>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
