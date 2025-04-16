@@ -1,7 +1,6 @@
 "use client";
 
 
-import Logo from "../../Components/sub/Logo";
 import {
   Cat,
   Layers2,
@@ -17,8 +16,10 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import toast from "react-hot-toast";
+import Logo from "../../../Components/sub/Logo";
 
 export default function Sidebar() {
+  
   const menuList = [
     {
       name: "Dashboard",
@@ -67,9 +68,9 @@ export default function Sidebar() {
     },
   ];
   return (
-    <section className="sticky top-0 flex flex-col gap-10 bg-white border-r px-5 py-3 h-screen overflow-hidden w-[260px] z-50">
-      <div className="flex justify-center py-4">
-    <Logo/>
+    <section className="sticky top-0 flex flex-col gap-10 bg-white border-r px-5 py-3 h-screen overflow-hidden w-[280px] z-50">
+      <div className="flex justify-start py-4">
+    <Logo />
       </div>
       <ul className="flex-1 h-full overflow-y-auto flex flex-col gap-4">
         {menuList?.map((item, key) => {
