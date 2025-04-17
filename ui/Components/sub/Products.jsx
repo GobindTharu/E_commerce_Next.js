@@ -99,7 +99,7 @@ export function ProductCard({ product }) {
       <div className="relative w-full">
         <img
           src={product.featureImageURL}
-          className="rounded-lg h-48 w-full object-cover"
+          className="rounded-lg  object-cover"
           alt={product.title}
         />
         <div className="absolute top-1 right-1">
