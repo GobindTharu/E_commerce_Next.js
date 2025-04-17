@@ -3,9 +3,9 @@
 
 export default function Page() {
   return (
-    <main className="flex flex-col gap-6 p-5">
+    <main className="flex flex-col gap-6">
       <div className="flex flex-col">
-        Admin Panel
+        Welcome
       </div>
     </main>
   );

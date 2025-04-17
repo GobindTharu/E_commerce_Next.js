@@ -1,6 +1,5 @@
 "use client";
 
-
 import {
   Cat,
   Layers2,
@@ -19,8 +18,8 @@ import toast from "react-hot-toast";
 import Logo from "../../../Components/sub/Logo";
 
 export default function Sidebar() {
-  const router = useRouter()
-  
+  const router = useRouter();
+
   const menuList = [
     {
       name: "Dashboard",
@@ -69,9 +68,9 @@ export default function Sidebar() {
     },
   ];
   return (
-    <section className="sticky top-0 flex flex-col gap-10 bg-white border-r px-5 py-3 h-screen overflow-hidden w-[280px] z-50">
+    <section className="sticky top-0 flex flex-col gap-10  bg-gradient-to-tr to-[#eff3f4] from-[#def3fd] border-r px-5 py-3 h-screen overflow-hidden w-[280px] z-50">
       <div className="flex justify-start py-4">
-    <Logo />
+        <Logo />
       </div>
       <ul className="flex-1 h-full overflow-y-auto flex flex-col gap-4">
         {menuList?.map((item, key) => {
@@ -81,14 +80,13 @@ export default function Sidebar() {
       <div className="flex justify-center">
         <button
           onClick={async () => {
-           try {
-            router.replace("/")
-            toast.success("Successfully Logged Out")
-            
-           } catch (error) {
-            toast.error(error.message)
-            
-           }
+            try {
+              window.localStorage.clear();
+              router.replace("/login");
+              toast.success("Successfully Logged Out");
+            } catch (error) {
+              toast.error(error.message);
+            }
           }}
           className="flex gap-2 items-center px-3 py-2 hover:bg-indigo-100 rounded-xl w-full justify-center ease-soft-spring duration-400 transition-all"
         >
@@ -106,7 +104,7 @@ function Tab({ item }) {
     <Link href={item?.link}>
       <li
         className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold ease-soft-spring transition-all duration-300
-        ${isSelected ? "bg-[#879fff] text-white" : "bg-white text-black"} 
+        ${isSelected ? "bg-[#879fff] text-white" : " bg-gradient-to-tr to-[#eff3f4] from-[#def3fd] text-black"} 
         `}
       >
         {item?.icon} {item?.name}

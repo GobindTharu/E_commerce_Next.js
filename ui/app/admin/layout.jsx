@@ -1,15 +1,22 @@
 "use client";
 
 import React from "react";
-import Sidebar from "../admin/Components/SideBar";
+import Sidebar from "./Components/SideBar";
+import Header from "./Components/Header";
 
 export default function Layout({ children }) {
   return (
     <main className="flex">
-      <Sidebar />
-      <section className="flex-1">
+      <div className="hidden md:block">
 
-      {children}
+      <Sidebar />
+      </div>
+      <section className="flex-1">
+        <Header />
+        <section className="flex-1 min-h-screen">
+
+        {children}
+        </section>
       </section>
     </main>
   );

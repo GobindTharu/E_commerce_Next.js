@@ -5,6 +5,14 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx", "app/admin/brands", "app/admin/categories"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.js",
+    "**/*.jsx",
+    "**/*.ts",
+    "**/*.tsx",
+    "app/admin/brands",
+    "app/admin/categories"
+  ],
   "exclude": ["node_modules"]
 }
