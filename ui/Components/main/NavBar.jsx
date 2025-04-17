@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
@@ -49,7 +49,7 @@ export const NavBar = () => {
       <div className="hidden lg:flex items-center justify-center gap-2">
         <SearchBar />
 
-        <LoginButton1 />
+        <LoginButton />
       </div>
 
       {/* Mobile Menu */}
@@ -75,7 +75,7 @@ export const NavBar = () => {
             </MenuItem>
           ))}
 
-          <LoginButton />
+          <LoginButton1 />
         </Menu>
       </div>
     </nav>

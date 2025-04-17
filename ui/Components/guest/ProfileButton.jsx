@@ -1,46 +1,35 @@
 "use client";
 
-import { LogOut, PlusIcon, UserCircle2} from "lucide-react";
-import toast from "react-hot-toast";
 import {
   Dropdown,
-  DropdownTrigger,
+  DropdownItem,
   DropdownMenu,
   DropdownSection,
-  DropdownItem,
-  Button,
+  DropdownTrigger,
   User,
 } from "@nextui-org/react";
+import { PlusIcon, UserCircle2 } from "lucide-react";
 
-import { useRouter } from "next/navigation";
-import Link from "next/link";
+import { Logout } from "../guest/Logout";
 
 export default function ProfileButton() {
-  const router = useRouter();
-
-  const handleLogout = () => {
-    window.localStorage.clear();
-    router.replace("/login");
-    toast.success("Logout Successful");
-  };
-
   return (
     <Dropdown
       showArrow
       classNames={{
         base: "before:bg-default-200",
         content:
-          " relative p-0 border-small border-divider bg-background right-6",
+          " relative p-0 border-small border-divider bg-background right-1",
       }}
       radius="sm"
     >
       <DropdownTrigger>
-          <button
-            title="My Account"
-            className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
-          >
-            <UserCircle2 size={22} />
-          </button>
+        <button
+          title="My Account"
+          className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
+        >
+          <UserCircle2 size={22} />
+        </button>
       </DropdownTrigger>
       <DropdownMenu
         aria-label="Custom item styles"
@@ -116,14 +105,7 @@ export default function ProfileButton() {
         <DropdownSection aria-label="Help & Feedback">
           <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
           <DropdownItem key="logout">
-            {" "}
-            <button
-              onClick={handleLogout}
-              className="h-8 w-8 flex justify-center items-center rounded-full hover:bg-gray-50"
-            >
-              <LogOut size={14} />
-              <DropdownItem key="logout">Log Out</DropdownItem>
-            </button>
+            <Logout />
           </DropdownItem>
         </DropdownSection>
       </DropdownMenu>

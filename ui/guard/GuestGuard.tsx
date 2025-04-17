@@ -5,6 +5,8 @@ import React, { useEffect, useState } from "react";
 const GuestGuard = ({ children }) => {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
   useEffect(() => {
     const accessToken = window.localStorage.getItem("accessToken");
 
@@ -16,6 +18,7 @@ const GuestGuard = ({ children }) => {
       router.replace("/login");
     }
   }, [router]);
+  
   return <>{!isAuthenticated && children}</>;
 };
 
