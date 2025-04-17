@@ -31,7 +31,7 @@ export default function CustomerReviews() {
         <h1 className="text-center font-semibold text-xl uppercase my-1 md:my-16">
           Our customers love
         </h1>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           {list?.map((item, index) => {
             return (
               <div

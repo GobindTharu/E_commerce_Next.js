@@ -83,7 +83,7 @@ export default function ProductsGridView({ products = sampleProducts }) {
     <section className="w-full flex justify-center">
       <div className="flex flex-col gap-5 max-w-[1200px] w-full p-5">
         <h1 className="text-center font-bold text-lg uppercase my-1 md:my-12" >Products</h1>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {products.map((item ,index) => (
             <ProductCard key={index} product={item} />
           ))}
