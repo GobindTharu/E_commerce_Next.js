@@ -20,15 +20,13 @@ export const metadata = {
 
 export default function GuestLayout({ children }) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex justify-center items-center `}
-      >
-        <Toaster />
-        <GuestGuard>
-          <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
-        </GuestGuard>
-      </body>
-    </html>
+    <div
+      className={`${geistSans.variable} ${geistMono.variable} antialiased flex justify-center items-center min-h-screen`}
+    >
+      <Toaster />
+      <GuestGuard>
+        <ReactQueryClientProvider>{children}</ReactQueryClientProvider>
+      </GuestGuard>
+    </div>
   );
 }
