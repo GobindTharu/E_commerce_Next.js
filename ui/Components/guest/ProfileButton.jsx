@@ -11,8 +11,18 @@ import {
 import { PlusIcon, UserCircle2 } from "lucide-react";
 
 import { Logout } from "../guest/Logout";
+import { useEffect, useState } from "react";
 
 export default function ProfileButton() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const accessToken = window.localStorage.getItem("accessToken");
+    setIsAuthenticated(!!accessToken);
+  }, []);
+
+  if (!isAuthenticated) return null;
+
   return (
     <Dropdown
       showArrow
