@@ -3,6 +3,7 @@ import Link from "next/link";
 import HeaderClientButtons from "../sub/HeaderClientButton";
 import AdminButton from "../sub/AdminButton";
 import ProfileButton from "../guest/ProfileButton";
+import SearchBar from "../sub/Search";
 
 export default function SubHeader() {
   return (
@@ -10,6 +11,8 @@ export default function SubHeader() {
       <Link href={"/"}></Link>
 
       <div className="flex items-center gap-1">
+      <SearchBar />
+
         <AdminButton />
         <HeaderClientButtons />
         <ProfileButton />

@@ -3,7 +3,7 @@
 import { Badge } from "@nextui-org/react";
 import { Heart, ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { data } from "../../constants/constants";
+import { data } from "../../../constants/constants";
 
 export default function HeaderClientButtons() {
   return (

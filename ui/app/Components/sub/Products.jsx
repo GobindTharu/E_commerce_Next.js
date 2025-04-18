@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import Link from "next/link";
-import FavoriteButton from "./FavoriteButton.jsx";
+import FavoriteButton from "./FavoriteButton.jsx.jsx";
 import AddToCartButton from "./AddToCartButton.jsx";
 import { Suspense } from "react";
 import MyRating from "./MyRating.jsx";
@@ -51,8 +51,7 @@ const sampleProducts = [
     stock: 10,
     orders: 2,
   },
-  
-  
+
   {
     id: 5,
     title: "Iphone",
@@ -60,7 +59,7 @@ const sampleProducts = [
     salePrice: 1000,
     featureImageURL: "/iphone.webp",
     shortDescription:
-    "Stylish  Sneaker with Sporty Look features and Runner Tested.",
+      "Stylish  Sneaker with Sporty Look features and Runner Tested.",
     stock: 10,
     orders: 2,
   },
@@ -75,16 +74,17 @@ const sampleProducts = [
     stock: 10,
     orders: 2,
   },
-  
 ];
 
 export default function ProductsGridView({ products = sampleProducts }) {
   return (
     <section className="w-full flex justify-center">
       <div className="flex flex-col gap-5 max-w-[1200px] w-full p-5">
-        <h1 className="text-center font-bold text-lg uppercase my-1 md:my-12" >Products</h1>
+        <h1 className="text-center font-bold text-lg uppercase my-1 md:my-12">
+          Products
+        </h1>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products.map((item ,index) => (
+          {products.map((item, index) => (
             <ProductCard key={index} product={item} />
           ))}
         </div>
@@ -145,17 +145,16 @@ export function ProductCard({ product }) {
 }
 
 function RatingReview({ product }) {
-  const counts =  getProductReviewCounts(); 
-    return (
+  const counts = getProductReviewCounts();
+  return (
     <div className="flex gap-2 items-center text-xs text-gray-500">
-      <MyRating/>
+      <MyRating />
       {/* <span>{counts.averageRating?.toFixed(1)} ({counts?.totalReviews})</span> */}
     </div>
   );
 }
 
 async function getProductReviewCounts(productId) {
-
   return {
     averageRating: 4.3,
     totalReviews: 18,

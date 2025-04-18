@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import Logo from "../../../Components/sub/Logo";
+import Logo from "../../Components/sub/Logo";
 
 export default function Sidebar() {
   const router = useRouter();
@@ -104,7 +104,11 @@ function Tab({ item }) {
     <Link href={item?.link}>
       <li
         className={`flex items-center gap-2 px-4 py-2 rounded-xl font-semibold ease-soft-spring transition-all duration-300
-        ${isSelected ? "bg-[#879fff] text-white" : " bg-gradient-to-tr to-[#eff3f4] from-[#def3fd] text-black"} 
+        ${
+          isSelected
+            ? "bg-[#879fff] text-white"
+            : " bg-gradient-to-tr to-[#eff3f4] from-[#def3fd] text-black"
+        } 
         `}
       >
         {item?.icon} {item?.name}

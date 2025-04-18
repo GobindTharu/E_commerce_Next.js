@@ -1,5 +1,5 @@
 import React from "react";
-import { LoginForm } from "/Components/guest/LoginForm";
+import { LoginForm } from "../../Components/guest/LoginForm";
 
 export const metadata = {
   title: "Login",

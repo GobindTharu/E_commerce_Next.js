@@ -3,11 +3,10 @@ import { useState } from "react";
 import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
-import SearchBar from "../sub/Search";
 import { LoginButton, LoginButton1 } from "../sub/LoginButton";
 import Logo from "../sub/Logo";
 
-export const NavBar = () => {
+const NavBar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
 
@@ -29,7 +28,7 @@ export const NavBar = () => {
   return (
     <nav className="sticky top-0 left-0 w-full backdrop-blur-md  exit bg-gray-300 py-0 md:py-2  px-4 sm:px-6 md:px-16 flex justify-between items-center z-50">
       {/* Logo */}
-   <Logo/>
+      <Logo />
 
       {/* Desktop Menu */}
       <div className="hidden lg:flex items-center gap-6 px-2 md:px-16 ">
@@ -47,7 +46,6 @@ export const NavBar = () => {
 
       {/* Desktop Login Button */}
       <div className="hidden lg:flex items-center justify-center gap-2">
-        <SearchBar />
 
         <LoginButton />
       </div>
@@ -81,3 +79,5 @@ export const NavBar = () => {
     </nav>
   );
 };
+
+export default NavBar;

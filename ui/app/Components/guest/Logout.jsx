@@ -20,7 +20,7 @@ export const Logout = () => {
         onClick={handleLogout}
         className="h-8 w-32 flex justify-center gap-3 items-center rounded-xl hover:bg-gray-50 ease-soft-spring duration-400 transition-all"
       >
-        <LogOut size={20} /> Log Out
+        <LogOut size={16} /> Log Out
       </button>
     </>
   );

@@ -1,8 +1,8 @@
-import express from "express";
-import ConnectDb from "./user/user.database.js";
 import cors from "cors";
-import { userController } from "./user/user.controller.js";
 import dotenv from "dotenv"; // Import dotenv using ES Modules syntax
+import express from "express";
+import { userController } from "./user/user.controller.js";
+import ConnectDb from "./user/user.database.js";
 
 //? create app
 const app = express();

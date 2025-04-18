@@ -151,7 +151,7 @@ const SearchBar = () => {
         onClick={handleClickSearchIcon}
       />
       {search && results.length > 0 && (
-        <ul className="absolute top-30 left-0 mt-2 w-full rounded-md shadow-lg z-20 bg-gray-200">
+        <ul className="absolute top-12 left-0 mt-2 w-full rounded-md shadow-lg z-20 bg-gray-200">
           {results.map((result, index) => (
             <li
               key={index}

@@ -10,7 +10,7 @@ import {
 } from "@nextui-org/react";
 import { PlusIcon, UserCircle2 } from "lucide-react";
 
-import { Logout } from "../guest/Logout";
+import { Logout } from "./Logout";
 import { useEffect, useState } from "react";
 
 export default function ProfileButton() {
