@@ -89,16 +89,16 @@ export default function Collections() {
       <Slider {...settings}>
         {collection.map((item, index) => (
           <div key={index} className="px-2 h-[19rem]">
-            <div className="flex flex-col justify-evenly md:flex-row md:flex-reverse gap-2 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
+            <div className="flex flex-col justify-evenly lg:flex-row  gap-1 bg-gradient-to-tr to-[#d9e2f1] from-[#cce7f5] p-7 w-full rounded-xl h-full">
               <div className="flex items-center justify-center w-full">
                 <img
-                  className="h-30 w-30 md:h-50 md:w-50 md:object-cover"
+                  className="h-30 w-30 md:object-cover"
                   src={item?.imageURL}
                   alt={item?.title}
                 />
               </div>
-              <div className="flex flex-col gap-2 md:w-[12rem]">
-                <div className="flex flex-col gap-4">
+              <div className="flex flex-col gap-2 md:w-[10rem]">
+                <div className="flex flex-col gap-2">
                   <h1 className="md:text-lg text-base font-semibold">
                     {item.title}
                   </h1>

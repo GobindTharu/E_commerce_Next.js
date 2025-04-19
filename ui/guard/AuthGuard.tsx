@@ -13,7 +13,6 @@ const AuthGuard = ({ children }) => {
 
     if (!accessToken || role !== "admin") {
       setIsAuthenticated(false);
-      window.localStorage.clear();
       router.replace("/");
       toast.error("You are not Authorized")
     }
