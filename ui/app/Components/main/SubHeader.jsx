@@ -10,7 +10,7 @@ export default function SubHeader() {
     <nav className="sticky top-12 md:top-16 w-full z-100  bg-opacity-0 backdrop-blur-2xl py-3 px-4 md:py-4 md:px-16 bg-gray-200 flex items-center justify-between">
       <Link href={"/"}></Link>
 
-      <div className="flex items-center gap-1">
+      <div className="flex items-center gap-3">
       <SearchBar />
 
         <AdminButton />

@@ -68,18 +68,17 @@ export default function ProfileButton() {
             <User
               avatarProps={{
                 size: "md",
-                src: "/prampod.jpg",
+                src: "/profile.jpg",
               }}
               classNames={{
                 name: "text-default-600",
                 description: "text-default-500",
               }}
-              name="Pramod Tharu"
-              description="@pramodtharu"
+              name="Gobind Tharu"
+              description="@GobindTharu"
             />
           </DropdownItem>
           <DropdownItem key="dashboard">Dashboard</DropdownItem>
-          <DropdownItem key="settings">Settings</DropdownItem>
           <DropdownItem
             key="new_project"
             endContent={<PlusIcon className="text-large" />}
@@ -89,7 +88,7 @@ export default function ProfileButton() {
         </DropdownSection>
 
         <DropdownSection showDivider aria-label="Preferences">
-          <DropdownItem key="quick_search" shortcut="⌘K">
+          <DropdownItem key="quick_search" shortcut="1.2K">
             Quick search
           </DropdownItem>
           <DropdownItem
@@ -98,9 +97,9 @@ export default function ProfileButton() {
             className="cursor-default"
             endContent={
               <select
-                className="z-10 outline-none w-16 py-0.5 rounded-md text-tiny group-data-[hover=true]:border-default-500 border-small border-default-300 dark:border-default-200 bg-transparent text-default-500"
-                id="theme"
-                name="theme"
+              className="z-10 outline-none w-16 py-0.5 rounded-md text-tiny group-data-[hover=true]:border-default-500 border-small border-default-300 dark:border-default-200 bg-transparent text-default-500"
+              id="theme"
+              name="theme"
               >
                 <option>System</option>
                 <option>Dark</option>
@@ -113,6 +112,7 @@ export default function ProfileButton() {
         </DropdownSection>
 
         <DropdownSection aria-label="Help & Feedback">
+            <DropdownItem key="settings">Settings</DropdownItem>
           <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
           <DropdownItem key="logout">
             <Logout />

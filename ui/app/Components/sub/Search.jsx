@@ -141,7 +141,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder="Search..."
-        className="w-32 sm:w-320 md:w-420 lg:w-53 p-2 text-md rounded-full text-gray-900 bg-gray-100 focus:outline-none"
+        className="w-32 sm:w-42 md:w-52 lg:w-63 p-2 text-md rounded-full text-gray-900 bg-gray-100 focus:outline-none"
         value={search}
         onChange={(e) => handleSearch(e.target.value)}
       />

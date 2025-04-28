@@ -20,7 +20,7 @@ const Header = () => {
         return new Date(storedDate);
       } else {
         const newTarget = new Date();
-        newTarget.setDate(newTarget.getDate() + 7); // 7 days from now
+        newTarget.setDate(newTarget.getDate() + 24); // 24 days from now
         localStorage.setItem("offerTargetDate", newTarget.toISOString());
         return newTarget;
       }
