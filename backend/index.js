@@ -26,11 +26,12 @@ app.get("/", (req, res) => {
 
 //? connect Database
 await ConnectDb();
+
 //?  register Routers / Controller
 app.use(userController);
 
 //?Network
-const Port = process.env.PORT;
+const Port = 8002
 
 app.listen(Port, () => {
   console.log(`App is listening on port : ${Port}`);

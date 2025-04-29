@@ -72,7 +72,7 @@ router.post(
     // payload
 
     const payload = { email: user.email };
-    const secretKey = process.env.JWT_SECRET;
+    const secretKey = 'qwerty12345';
     const token = jwt.sign(payload, secretKey, {
       expiresIn: "7d",
     });
