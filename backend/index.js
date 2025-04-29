@@ -31,7 +31,7 @@ await ConnectDb();
 app.use(userController);
 
 //?Network
-const Port = 8002
+const Port = process.env.PORT;
 
 app.listen(Port, () => {
   console.log(`App is listening on port : ${Port}`);
