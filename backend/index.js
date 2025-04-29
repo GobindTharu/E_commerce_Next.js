@@ -20,7 +20,7 @@ app.use(
 );
 
 
-app.post("/login", (req, res) => {
+app.get("/", (req, res) => {
   res.json({ message: "Login successful" });
 });
 
