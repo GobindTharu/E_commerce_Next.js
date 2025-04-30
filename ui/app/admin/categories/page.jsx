@@ -1,9 +1,12 @@
 import React from "react";
+import Form from "./components/Form";
+import ListView from "./components/ListView";
 
 const page = () => {
   return (
-    <main>
-      <h1>Categories</h1>
+    <main className="p-4 flex gap-5">
+      <Form />
+      <ListView />
     </main>
   );
 };
