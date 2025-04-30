@@ -1,8 +1,8 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-import  NavBar  from "../Components/main/NavBar.jsx";
-import SubHeader from "../Components/main/SubHeader.jsx";
-import Header from "../Components/main/Header.jsx";
+import NavBar from "../Components/main/NavBar.jsx";
+import SubHeader from "app/Components/main/SubHeader.jsx";
+import Header from "app/Components/main/Header.jsx";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,9 +24,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      ><Header/>
-        <NavBar/>
-        <SubHeader/>
+      >
+        <Header />
+        <NavBar />
+        <SubHeader />
         <Toaster />
         {children}
       </body>
