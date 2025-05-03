@@ -1,7 +1,7 @@
 "use client";
 import { UploadFile } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
@@ -9,27 +9,11 @@ import toast from "react-hot-toast";
 
 const Form = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { mutate } = useMutation({
-    mutationKey: ["create-category"],
-    mutationFn: async ({imgUrl,data}) => {
-     
-      await axios.post(`http://localhost:8002/category/create`, {imgUrl,data});
-      console.log(data,imgUrl)
-
-      setImage(null);
-      console.log(values)
-    },
-    onSuccess: () => {
-      toast.success(res.data.message);
-    },
-    onError: () => {
-      toast.error(error.response.data.message);
-    },
-  });
 
   const handleData = (key, value) => {
     setData((preData) => {
@@ -44,11 +28,11 @@ const Form = () => {
     const formData = new FormData();
     formData.append("file", image);
     formData.append("upload_preset", "images_preset");
-  
+
     try {
       const cloudName = process.env.NEXT_PUBLIC_CLOUD_NAME;
       const api = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
-  
+
       const res = await axios.post(api, formData);
       const { secure_url } = res.data;
       console.log("Upload successful:", secure_url);
@@ -58,26 +42,31 @@ const Form = () => {
       throw error;
     }
   };
-  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-
-    if (!image || !data.name || !data.url) {
-      toast.error("Please fill all required fields.");
-      return;
-    }
+      if (!image || !data.name || !data.url) {
+        toast.error("Please fill all required fields.");
+        return;
+      }
       const imgUrl = await uploadFile("image");
 
+      await axios.post(`http://localhost:8002/category/create`, {
+        imgUrl,
+        ...data,
+      });
 
+      setImage(null);
+      setData(null);
 
-      console.log("File Uploaded Successful");
+      toast.success("Created  Successful");
+      queryClient.invalidateQueries({ queryKey: ["categories"] });
     } catch (error) {
       console.log(error.message);
     }
-    mutate({ image, data });
+    // mutate({ image, data });
     setIsLoading(false);
   };
 
@@ -87,7 +76,11 @@ const Form = () => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {image && (
           <div className="flex justify-center items-center">
-            <img className="h-25" src={URL.createObjectURL(image)} alt="image" />
+            <img
+              className="h-25"
+              src={URL.createObjectURL(image)}
+              alt="image"
+            />
           </div>
         )}
         <div className="flex flex-col gap-1">
@@ -144,7 +137,7 @@ const Form = () => {
           />
         </div>
         <Button variant="contained" type="submit">
-         {isLoading && setIsLoading ? "Creating..." : "Create"}
+          {isLoading && setIsLoading ? "Creating..." : "Create"}
         </Button>
       </form>
     </div>

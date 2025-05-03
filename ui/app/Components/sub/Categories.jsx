@@ -44,46 +44,47 @@ export default function Categories({ categories }) {
 
   const category = [
     {
-      name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      name: "Caps",
+      subTitle: "Complete your outfit with trendy and stylish caps.",
       imageURL: "/caps.png",
     },
     {
-      name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      name: "T-shirt",
+      subTitle: "Comfortable and cool T-shirts for everyday wear.",
       imageURL: "/t-shirt.webp",
     },
     {
-      name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      name: "Shoes",
+      subTitle: "Step out in style with our latest shoe collection.",
       imageURL: "/shoes.png",
     },
     {
       name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      subTitle: "Find top performance laptops at unbeatable prices.",
       imageURL: "/laptop.webp",
     },
     {
       name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      subTitle: "Explore high-performance laptops for work and play.",
       imageURL: "/tshirt.png",
     },
     {
-      name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      name: "T-shirts wears",
+      subTitle: "Express your style with our range of printed T-shirts.",
       imageURL: "/t-shirt.webp",
     },
     {
-      name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      name: "Sport Shoes",
+      subTitle: "Built for speed and comfort during any workout.",
       imageURL: "/shoes.png",
     },
     {
       name: "Laptop",
-      subTitle: "msi laptop in best deal you can shop now",
+      subTitle: "Powerful laptops designed for productivity and gaming.",
       imageURL: "/laptop.webp",
     },
   ];
+  
 
   return (
     <div className="flex flex-col gap-8 justify-center overflow-hidden md:p-10 p-5">

@@ -16,11 +16,6 @@ const categorySchema = new mongoose.Schema(
         trim:true,
         required: true,
     },
-    adminId: {
-      type: mongoose.ObjectId,
-      ref: "User",
-      required: true,
-    },
   },
   {
     timestamps: true,

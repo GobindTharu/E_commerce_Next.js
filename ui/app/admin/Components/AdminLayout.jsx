@@ -40,7 +40,7 @@ export default function AdminLayout({ children }) {
       {/* Mobile Size */}
       <div
         ref={sidebarRef}
-        className={`fixed md:hidden ease-in-out duration-500 transition-all
+        className={`fixed md:hidden ease-in-out duration-500 z-1000 transition-all
         ${isOpen ? "translate-x-0" : "-translate-x-[280px]"}
       `}
       >

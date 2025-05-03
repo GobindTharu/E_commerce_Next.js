@@ -40,46 +40,92 @@ export default function FeaturedProductSlider() {
     },
     {
       id: 2,
-      title: "Casual Wear",
-      shortDescription: "Upgrade your wardrobe with trendy casual outfits.",
-      featureImageURL: "/caps.png",
+      title: "Caps",
+      shortDescription:
+        "Stylish and adjustable caps for everyday wear and sun protection.",
+      featureImageURL: "/cap.png",
     },
     {
       id: 3,
-      title: "Elegant Heels",
-      shortDescription: "Step up your fashion game with these stylish heels.",
-      featureImageURL: "/t-shirt.webp",
+      title: "Laptops",
+      shortDescription: "Gaming Laptops with dedicated Graphics.",
+      featureImageURL: "/laptop.webp",
     },
+
     {
       id: 4,
-      title: "Stylish Sneakers",
-      shortDescription: "Explore the latest sneaker trends and fashion styles.",
+      title: "T-Shirts",
+      shortDescription:
+        "Trendy graphic tees with bold prints and comfortable fabric.",
       featureImageURL: "/tshirt.png",
     },
     {
       id: 5,
-      title: "Casual Wear",
-      shortDescription: "Upgrade your wardrobe with trendy casual outfits.",
-      featureImageURL: "/laptop.webp",
+      title: "Denim Jackets",
+      shortDescription: "Classic denim jackets for a cool and casual look.",
+      featureImageURL: "/denim-jacket.png",
     },
     {
       id: 6,
-      title: "Elegant Heels",
-      shortDescription: "Step up your fashion game with these stylish heels.",
-      featureImageURL: "/caps.png",
+      title: "Smart Watches",
+      shortDescription:
+        "Modern smartwatches with health tracking and notifications.",
+      featureImageURL: "/smartwatch.png",
     },
     {
       id: 7,
-      title: "Stylish Sneakers",
-      shortDescription: "Explore the latest sneaker trends and fashion styles.",
-      featureImageURL: "/cap.png",
+      title: "Wireless Earbuds",
+      shortDescription:
+        "Compact and high-quality earbuds with noise cancellation.",
+      featureImageURL: "/earbuds.png",
     },
     {
       id: 8,
-      title: "Casual Wear",
-      shortDescription: "Upgrade your wardrobe with trendy casual outfits.",
-      featureImageURL: "/tshirt.png",
+      title: "Hoodies",
+      shortDescription:
+        "Comfortable and warm hoodies for casual wear in all seasons.",
+      featureImageURL: "/hoodie.png",
     },
+    {
+      id: 9,
+      title: "Sports Bras",
+      shortDescription:
+        "Supportive and breathable sports bras for active lifestyles.",
+      featureImageURL: "/sports-bra.png",
+    },
+    {
+      id: 10,
+      title: "Fitness Trackers",
+      shortDescription: "Wearable fitness devices to track workouts and steps.",
+      featureImageURL: "/fitness-tracker.png",
+    },
+    {
+      id: 11,
+      title: "Leather Backpacks",
+      shortDescription:
+        "Stylish and durable backpacks made from genuine leather.",
+      featureImageURL: "/leather-backpack.png",
+    },
+    {
+      id: 12,
+      title: "Casual Sneakers",
+      shortDescription: "Everyday sneakers with versatile style and comfort.",
+      featureImageURL: "/casual-sneakers.png",
+    },
+    {
+      id: 13,
+      title: "Beanies",
+      shortDescription: "Soft and cozy beanies for warmth and style in winter.",
+      featureImageURL: "/beanie.png",
+    },
+    {
+      id: 14,
+      title: "Summer Dresses",
+      shortDescription:
+        "Lightweight and breathable dresses perfect for summer days.",
+      featureImageURL: "/summer-dress.png",
+    },
+   
   ];
 
   return (
