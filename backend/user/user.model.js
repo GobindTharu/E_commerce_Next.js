@@ -59,12 +59,6 @@ const userSchema = new mongoose.Schema({
     trim: true,
     maxlength: 255,
   },
-  description:{
-    type: String,
-    required: true,
-    trim: true,
-    maxlength: 225,
-  }
 });
 
 const UserTable = new mongoose.model("User", userSchema);

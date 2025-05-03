@@ -47,7 +47,6 @@ const SignupForm = () => {
           role: "",
           phoneNumber: "",
           address: "",
-          description: "",
           email: "",
           password: "",
           confirmPassword: "",
@@ -105,12 +104,7 @@ const SignupForm = () => {
                 label: "Confirm Password",
                 type: "password",
               },
-              {
-                name: "description",
-                label: "Description",
-                multiline: true,
-                rows: 3,
-              },
+             
             ].map(({ name, label, type, multiline, rows }) => (
               <FormControl fullWidth key={name}>
                 <TextField

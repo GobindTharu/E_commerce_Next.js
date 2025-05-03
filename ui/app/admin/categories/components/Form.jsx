@@ -1,4 +1,5 @@
 "use client";
+import { UploadFile } from "@mui/icons-material";
 import { Button } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -7,11 +8,14 @@ import React, { useState } from "react";
 
 const Form = () => {
   const router = useRouter();
+  const [data, setData] = useState(null);
+  const [image, setImage] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const [isPending, mutate] = useMutation({
+  const { mutate } = useMutation({
     mutationKey: ["create-category"],
     mutationFn: async (values) => {
-      return await axios.post("http://localhost:8002/create-category", values);
+      // return await axios.post("http://localhost:8002/create-category", values);
     },
     onSuccess: () => {
       toast.success(res.data.message);
@@ -20,9 +24,6 @@ const Form = () => {
       toast.error(error.response.data.message);
     },
   });
-
-  const [data, setData] = useState(null);
-  const [image, setImage] = useState(null);
 
   const handleData = (key, value) => {
     setData((preData) => {
@@ -33,24 +34,51 @@ const Form = () => {
     });
   };
 
+  const uploadFile = async () => {
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append("upload_preset", "images_preset");
+  
+    try {
+      const cloudName = process.env.NEXT_PUBLIC_CLOUD_NAME;
+      const api = `https://api.cloudinary.com/v1_1/${cloudName}/image/upload`;
+  
+      const res = await axios.post(api, formData);
+      const { secure_url } = res.data;
+      console.log("Upload successful:", secure_url);
+      return secure_url;
+    } catch (error) {
+      console.error("Upload failed:", error.message);
+      throw error;
+    }
+  };
+  
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const imgUrl = await uploadFile("image");
+
+      // await axios.post(`http://localhost:8002/api/image`, {imgUrl});
+
+      setImage(null);
+
+      console.log("File Uploaded Successful");
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    setIsLoading(false);
+  };
+
   return (
     <div className="flex flex-col gap-3 bg-gray-50 p-5 rounded-xl w-full md:w-[400px]">
       <h1>Create Category</h1>
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-
-          mutate(newProduct);
-        }}
-        className="flex flex-col gap-4"
-      >
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {image && (
           <div className="flex justify-center items-center">
-            <img
-              className="h-25"
-              src={URL.createObjectURL(image)}
-              alt="image"
-            />
+            <img className="h-25" src={URL.createObjectURL(image)} alt="image" />
           </div>
         )}
         <div className="flex flex-col gap-1">
@@ -59,6 +87,11 @@ const Form = () => {
           </label>
           <input
             onChange={(e) => {
+              const file = e.target.files[0];
+              console.log(file);
+
+              if (!file) return;
+
               if (e.target.files.length > 0) {
                 setImage(e.target.files[0]);
               }
@@ -105,6 +138,7 @@ const Form = () => {
           Create
         </Button>
       </form>
+      {isLoading && "Loading"}
     </div>
   );
 };
