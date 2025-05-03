@@ -3,6 +3,11 @@ import express from "express";
 import bcrypt from "bcrypt";
 import UserTable from "./user.model.js";
 import jwt from "jsonwebtoken";
+import validateReqBody from "../middleware/validate.req.body.middleware..js";
+import {
+  loginCredentialsSchema,
+  signupCredentialSchema,
+} from "./user.validation.js";
 
 const router = express.Router();
 
@@ -12,7 +17,7 @@ const router = express.Router();
 
 router.post(
   "/user/signup/",
-
+  validateReqBody(signupCredentialSchema),
   async (req, res) => {
     //   extract new user from req.body
     const newUser = req.body;
@@ -44,6 +49,7 @@ router.post(
 
 router.post(
   "/user/login/",
+  validateReqBody(loginCredentialsSchema),
 
   async (req, res) => {
     // extract user

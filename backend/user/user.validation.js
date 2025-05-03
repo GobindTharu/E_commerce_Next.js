@@ -1,14 +1,11 @@
 import yup from "yup";
-import dayjs from "dayjs";
 
 export const loginCredentialsSchema = yup.object({
   email: yup.string().email().required().trim().lowercase(),
   password: yup.string().required().trim(),
 });
 
-import * as yup from "yup";
-
-export const registerCredentialSchema = yup.object({
+export const signupCredentialSchema = yup.object({
   email: yup
     .string()
     .email("Must be a valid email address.")
@@ -60,12 +57,6 @@ export const registerCredentialSchema = yup.object({
     .required("Address is required.")
     .trim()
     .max(255, "Address must not exceed 255 characters."),
-
-  description: yup
-    .string()
-    .required("Description is required.")
-    .trim()
-    .max(500, "Description must not exceed 500 characters."),
 
   age: yup
     .number()

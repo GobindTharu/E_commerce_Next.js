@@ -3,6 +3,7 @@ import dotenv from "dotenv"; // Import dotenv using ES Modules syntax
 import express from "express";
 import { userController } from "./user/user.controller.js";
 import ConnectDb from "./user/user.database.js";
+import { categoryController } from "./category/category.controller.js";
 
 //? create app
 const app = express();
@@ -29,6 +30,7 @@ await ConnectDb();
 
 //?  register Routers / Controller
 app.use(userController);
+app.use(categoryController);
 
 //?Network
 const Port = process.env.PORT;

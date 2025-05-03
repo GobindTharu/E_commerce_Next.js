@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import { useState } from "react";
 import { Button, IconButton, Menu, MenuItem } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";

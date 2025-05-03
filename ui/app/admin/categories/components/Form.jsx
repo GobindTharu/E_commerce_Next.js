@@ -5,6 +5,7 @@ import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const Form = () => {
   const router = useRouter();
@@ -14,8 +15,13 @@ const Form = () => {
 
   const { mutate } = useMutation({
     mutationKey: ["create-category"],
-    mutationFn: async (values) => {
-      // return await axios.post("http://localhost:8002/create-category", values);
+    mutationFn: async ({imgUrl,data}) => {
+     
+      await axios.post(`http://localhost:8002/category/create`, {imgUrl,data});
+      console.log(data,imgUrl)
+
+      setImage(null);
+      console.log(values)
     },
     onSuccess: () => {
       toast.success(res.data.message);
@@ -58,17 +64,20 @@ const Form = () => {
     e.preventDefault();
     setIsLoading(true);
     try {
+
+    if (!image || !data.name || !data.url) {
+      toast.error("Please fill all required fields.");
+      return;
+    }
       const imgUrl = await uploadFile("image");
 
-      // await axios.post(`http://localhost:8002/api/image`, {imgUrl});
 
-      setImage(null);
 
       console.log("File Uploaded Successful");
     } catch (error) {
       console.log(error.message);
     }
-
+    mutate({ image, data });
     setIsLoading(false);
   };
 
@@ -135,10 +144,9 @@ const Form = () => {
           />
         </div>
         <Button variant="contained" type="submit">
-          Create
+         {isLoading && setIsLoading ? "Creating..." : "Create"}
         </Button>
       </form>
-      {isLoading && "Loading"}
     </div>
   );
 };

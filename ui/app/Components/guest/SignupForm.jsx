@@ -1,4 +1,5 @@
 "use client";
+import axiosInstance from "@/libs/axiosInstance";
 import {
   Box,
   Button,
@@ -25,7 +26,7 @@ const SignupForm = () => {
   const { mutate } = useMutation({
     mutationKey: ["signup-user"],
     mutationFn: async (values) => {
-      return await axios.post("http://localhost:8002/user/signup/", values);
+      return await axiosInstance.post("/user/signup/", values);
     },
     onSuccess: (res) => {
       router.push("/login");
