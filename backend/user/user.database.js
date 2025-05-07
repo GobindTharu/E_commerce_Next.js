@@ -1,6 +1,8 @@
 import mongoose from "mongoose";
-const uri = `mongodb+srv://mern:mern%40123@school.xg9dy.mongodb.net/Chaudhary-Hardware?retryWrites=true&w=majority&appName=School`;
+import dotenv from "dotenv"; // Import dotenv using ES Modules syntax
+dotenv.config(); // Load the environment variables
 
+const uri = process.env.MONGODB_URI;
 const connectDB = async () => {
   try {
     await mongoose.connect(uri);

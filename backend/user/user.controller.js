@@ -16,7 +16,7 @@ const router = express.Router();
 // hash password  do not store plain password
 
 router.post(
-  "/user/signup/",
+  "/user/signup",
   validateReqBody(signupCredentialSchema),
   async (req, res) => {
     //   extract new user from req.body
@@ -48,7 +48,7 @@ router.post(
 );
 
 router.post(
-  "/user/login/",
+  "/user/login",
   validateReqBody(loginCredentialsSchema),
 
   async (req, res) => {

@@ -21,9 +21,9 @@ export const LoginForm = () => {
   const { mutate } = useMutation({
     mutationKey: ["login-user"],
     mutationFn: async (values) => {
-      return await axiosInstance.post("/user/login/", values);
+      return await axiosInstance.post("/user/login", values);
     },
-    
+
     onSuccess: (res) => {
       const accessToken = res.data.accessToken;
       const firstName = res.data.userDetails.firstName;
@@ -34,7 +34,6 @@ export const LoginForm = () => {
       window.localStorage.setItem("role", role);
       router.push("/");
       toast.success("login successful");
-      
     },
     onError: (error) => {
       toast.error("Invalid Credential");

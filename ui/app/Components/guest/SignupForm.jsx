@@ -1,5 +1,5 @@
 "use client";
-import axiosInstance from "@/libs/axiosInstance";
+import axiosInstance from "../../../libs/axiosInstance";
 import {
   Box,
   Button,
@@ -13,7 +13,6 @@ import {
   InputLabel,
 } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import { Formik } from "formik";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -26,7 +25,7 @@ const SignupForm = () => {
   const { mutate } = useMutation({
     mutationKey: ["signup-user"],
     mutationFn: async (values) => {
-      return await axiosInstance.post("/user/signup/", values);
+      return await axiosInstance.post("/user/signup", values);
     },
     onSuccess: (res) => {
       router.push("/login");
