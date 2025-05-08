@@ -3,6 +3,7 @@ import validateReqBody from "../middleware/validate.req.body.middleware..js";
 import CategoryTable from "./category.model.js";
 import { categoryValidationSchema } from "./category.validation.js";
 import { paginationSchema } from "../shared/pagination.schema.js";
+import { validateMongoIdFromReqParams } from "../middleware/validate.mongo.id.js";
 
 const router = express.Router();
 
@@ -68,6 +69,25 @@ router.post(
     return res
       .status(200)
       .send({ message: "success", CategoryList: categories, totalPage });
+  }
+);
+
+router.delete(
+  "/category/delete/:id",
+
+  validateMongoIdFromReqParams,
+
+  async (req, res) => {
+    // extract product id from req.params
+    const categoryId = req.params.id;
+    console.log(categoryId)
+
+    // delete product
+    await CategoryTable.deleteOne({ _id: categoryId });
+
+    return res
+      .status(200)
+      .send({ message: "Product is deleted successfully." });
   }
 );
 

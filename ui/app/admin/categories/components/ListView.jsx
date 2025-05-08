@@ -1,21 +1,42 @@
 "use client";
-import React, { useState } from "react";
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import { Button, Stack } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-import CircularProgress from "@mui/material/CircularProgress";
+import React, { useState } from "react";
 import toast from "react-hot-toast";
+import ConfirmDeleteCard from "../components/ConfirmToDelete";
+import { Category } from "@mui/icons-material";
 
-const ListView = ({ userRole }) => {
+const ListView = ({ props }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const { isLoading, data, isError, error, isFetching } = useQuery({
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const confirmDelete = async (props) => {
+    console.log("Deleting:", selectedCategory);
+    showConfirm(true);
+    try {
+      await axios.post(
+        `http://localhost:8002/category/delete/${props.categoryId}`
+      );
+
+      toast.success("Deleted  Successful");
+    } catch (error) {
+      console.log(error.message);
+    }
+    setShowConfirm(false);
+  };
+
+  const { data, isError, error } = useQuery({
     queryKey: ["categories", currentPage],
     queryFn: async () => {
       const res = await axios.post("http://localhost:8002/category/list", {
-        
-          page: currentPage,
-          limit: 6,
-      
+        page: currentPage,
+        limit: 6,
       });
       return res.data;
     },
@@ -39,10 +60,16 @@ const ListView = ({ userRole }) => {
     }
   }, [isError, error]);
 
+  const handleDelete = async (props) => {
+    setIsLoading(true);
+    setSelectedCategory(catee);
+    setShowConfirm(true);
+  };
+
   return (
     <div className="p-5 rounded-xl bg-gray-50 flex-1">
       <h2 className="text-lg font-semibold mb-3">Categories</h2>
-      <table className="w-full border">
+      <table className="w-full border-none bg-gray-100">
         <thead>
           <tr className="bg-gray-200 text-left">
             <th className="p-2">SN</th>
@@ -60,20 +87,42 @@ const ListView = ({ userRole }) => {
             </tr>
           ) : (
             CategoryList.map((item, index) => (
-              <tr key={item._id} {...item} className="border-t">
+              <tr key={item._id} {...item} className="border-t bg-gray-100 p-20">
                 <td className="p-2">{(currentPage - 1) * 6 + index + 1}</td>
                 <td className="p-2">
-                  <img
+                  <img 
                     src={item.imgUrl}
                     alt={item.name}
                     className="h-10 w-10 object-cover rounded"
                   />
                 </td>
                 <td className="p-2">{item.name}</td>
-                <td className="p-2">
-                  <button className="text-blue-600 hover:underline">
-                    Edit
-                  </button>
+                <td className="p-2 ">
+                  <Stack className="flex gap-3" direction="row" spacing={2}>
+                    <Button
+                      variant="contained"
+                      size="small"
+                      endIcon={<EditIcon />}
+                    >
+                      Edit
+                    </Button>
+                    <Button
+                      onClick={() => handleDelete(category)}
+                      variant="outlined"
+                      size="small"
+                      startIcon={<DeleteIcon />}
+                    >
+                      Delete
+                    </Button>
+
+                    {showConfirm && selectedCategory && (
+                      <ConfirmDeleteCard
+                        categoryName={selectedCategory}
+                        onDelete={confirmDelete}
+                        onCancel={() => setShowConfirm(false)}
+                      />
+                    )}
+                  </Stack>
                 </td>
               </tr>
             ))
@@ -96,7 +145,6 @@ const ListView = ({ userRole }) => {
           className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
         >
           Next
-          
         </button>
       </div>
     </div>

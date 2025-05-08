@@ -14,7 +14,6 @@ const Form = () => {
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-
   const handleData = (key, value) => {
     setData((preData) => {
       return {
