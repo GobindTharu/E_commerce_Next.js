@@ -4,6 +4,7 @@ import CategoryTable from "./category.model.js";
 import { categoryValidationSchema } from "./category.validation.js";
 import { paginationSchema } from "../shared/pagination.schema.js";
 import { validateMongoIdFromReqParams } from "../middleware/validate.mongo.id.js";
+import { isAdmin } from "../middleware/authentication.middleware.js";
 
 const router = express.Router();
 
@@ -74,13 +75,12 @@ router.post(
 
 router.delete(
   "/category/delete/:id",
-
   validateMongoIdFromReqParams,
 
   async (req, res) => {
     // extract product id from req.params
     const categoryId = req.params.id;
-    console.log(categoryId)
+    console.log(categoryId);
 
     // delete product
     await CategoryTable.deleteOne({ _id: categoryId });
@@ -90,5 +90,38 @@ router.delete(
       .send({ message: "Product is deleted successfully." });
   }
 );
+
+// edit product
+router.put(
+  "/category/edit/:id",
+  validateMongoIdFromReqParams,
+
+  validateReqBody(categoryValidationSchema),
+  async (req, res) => {
+    // extract product id from req.params
+    const categoryId = req.params.id;
+
+    // extract new values from req.body
+    const newValues = req.body;
+
+    console.log(newValues);
+
+    // update product
+    await CategoryTable.updateOne(
+      { _id: categoryId },
+      {
+        $set: {
+          ...newValues,
+        },
+      }
+    );
+
+    return res
+      .status(200)
+      .send({ message: "Product is updated successfully." });
+  }
+);
+
+
 
 export { router as categoryController };

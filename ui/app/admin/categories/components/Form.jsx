@@ -68,7 +68,22 @@ const Form = () => {
     // mutate({ image, data });
     setIsLoading(false);
   };
+  
+  const handleUpdate = async () => {
+    if (!selectedCategory) return;
 
+    try {
+      await axios.put(
+        `http://localhost:8002/category/update/${selectedCategory._id}`
+      );
+      toast.success("Deleted successfully");
+      setShowConfirm(false);
+      setSelectedCategory(null);
+      refetch();
+    } catch (error) {
+      toast.error("Failed to delete");
+    }
+  };
   return (
     <div className="flex flex-col gap-3 bg-gray-50 p-5 rounded-xl w-full md:w-[400px]">
       <h1>Create Category</h1>
