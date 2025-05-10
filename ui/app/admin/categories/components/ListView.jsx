@@ -2,7 +2,7 @@
 
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { Button, Stack } from "@mui/material";
+import { Button } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -15,6 +15,7 @@ const ListView = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [showConfirm, setShowConfirm] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
+  
 
   const { data, isError, error, refetch } = useQuery({
     queryKey: ["categories", currentPage],
@@ -57,11 +58,10 @@ const ListView = () => {
       toast.error("Failed to delete");
     }
   };
-  const handleUpdate = async () => {
-   await router.push(
-      `http://localhost:8002/admin/categories?id=${selectedCategory._id}`
-    );
-    console.log(selectedCategory._id);
+  const handleUpdate = async (item) => {
+    setSelectedCategory(item);
+    router.push(`/admin/categories?id=${item._id}`);
+    console.log(item._id);
   };
 
   const CategoryList = data?.CategoryList || [];
@@ -70,13 +70,15 @@ const ListView = () => {
   return (
     <div className="p-5 rounded-xl bg-gray-50 flex-1">
       <h2 className="text-lg font-semibold mb-3">Categories</h2>
-      <table className="w-full border-none bg-gray-100">
+      <table className="border-separate border-spacing-y-3 w-full">
         <thead>
           <tr className="bg-gray-200 text-left">
-            <th className="p-2">SN</th>
-            <th className="p-2">Image</th>
-            <th className="p-2">Name</th>
-            <th className="p-2">Actions</th>
+            <th className="bg-gray-200 px-3 py-2  rounded-l-lg">SN</th>
+            <th className="bg-gray-200 px-3 py-2">Image</th>
+            <th className="bg-gray-200 px-3 py-2 text-left">Name</th>
+            <th className="bg-gray-200 px-3 py-2 rounded-r-lg text-center">
+              Actions
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -87,39 +89,18 @@ const ListView = () => {
               </td>
             </tr>
           ) : (
-            CategoryList.map((item, index) => (
-              <tr key={item._id} className="border-t bg-gray-100">
-                <td className="p-2">{(currentPage - 1) * 5 + index + 1}</td>
-                <td className="p-2">
-                  <img
-                    src={item.imgUrl}
-                    alt={item.name}
-                    className="h-10 w-10 object-cover rounded"
-                  />
-                </td>
-                <td className="p-2">{item.name}</td>
-                <td className="p-2">
-                  <Stack className="flex gap-3" direction="row" spacing={2}>
-                    <Button
-                      onClick={handleUpdate}
-                      variant="contained"
-                      size="small"
-                      endIcon={<EditIcon />}
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      onClick={() => handleDeleteClick(item)}
-                      variant="outlined"
-                      size="small"
-                      startIcon={<DeleteIcon />}
-                    >
-                      Delete
-                    </Button>
-                  </Stack>
-                </td>
-              </tr>
-            ))
+            CategoryList.map((item, index) => {
+              return (
+                <Row
+                  key={item._id}
+                  item={item}
+                  index={index}
+                  currentPage={currentPage}
+                  handleDeleteClick={handleDeleteClick}
+                  handleUpdate={handleUpdate}
+                />
+              );
+            })
           )}
         </tbody>
       </table>
@@ -154,5 +135,44 @@ const ListView = () => {
     </div>
   );
 };
+
+function Row({ item, index, currentPage, handleDeleteClick, handleUpdate }) {
+  return (
+    <tr
+      key={item._id}
+      className="border-separate border-spacing-y-3 py-3 w-full"
+    >
+      <td className=" bg-gray-200 px-3 py-2 rounded-l-lg">
+        {(currentPage - 1) * 5 + index + 1}
+      </td>
+      <td className=" bg-gray-200 px-3 py-2">
+        <img
+          src={item.imgUrl}
+          alt={item.name}
+          className="h-10 w-10 object-cover rounded"
+        />
+      </td>
+      <td className=" bg-gray-200 px-3 py-2">{item.name}</td>
+      <td className="flex flex-row justify-center gap-x-3 bg-gray-200 px-3 py-3  rounded-r-lg text-center">
+        <Button
+          onClick={() => handleUpdate(item)}
+          variant="contained"
+          size="small"
+          endIcon={<EditIcon />}
+        >
+          Edit
+        </Button>
+        <Button
+          onClick={() => handleDeleteClick(item)}
+          variant="outlined"
+          size="small"
+          startIcon={<DeleteIcon />}
+        >
+          Delete
+        </Button>
+      </td>
+    </tr>
+  );
+}
 
 export default ListView;

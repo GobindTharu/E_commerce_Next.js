@@ -1,10 +1,9 @@
 "use client";
-import { UploadFile } from "@mui/icons-material";
 import { Button } from "@mui/material";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 const Form = () => {
@@ -13,6 +12,37 @@ const Form = () => {
   const [data, setData] = useState(null);
   const [image, setImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const searchParams = useSearchParams();
+  const id = searchParams.get('id')
+  const router = useRouter();
+  const params = useParams();
+  const productId = params.id;
+  // fetch product details
+  const { isPending, data, isError, error } = useQuery<
+    IProductDetailResponse,
+    IError
+  >({
+    queryKey: ["product-details"],
+    queryFn: async () => {
+      const response = await axiosInstance.get(`/product/detail/${productId}`);
+      return response.data?.productDetails;
+    },
+  });
+
+  const { isPending: editPending, mutate } = useMutation({
+    mutationKey: ["edit-product"],
+    mutationFn: async (values: IProductData) => {
+      return await axiosInstance.put(`/product/edit/${productId}`, values);
+    },
+    onSuccess: (res: IEditProductResponse) => {
+      toast.success(res.data.message);
+      router.push(`/product-detail/${productId}`);
+    },
+    onError: (error: IError) => {
+      toast.error(error.response.data.message);
+    },
+  });
+
 
   const handleData = (key, value) => {
     setData((preData) => {
@@ -84,9 +114,11 @@ const Form = () => {
       toast.error("Failed to delete");
     }
   };
+
+
   return (
     <div className="flex flex-col gap-3 bg-gray-50 p-5 rounded-xl w-full md:w-[400px]">
-      <h1>Create Category</h1>
+      <h1 className="text-lg font-bold">{id? "Update": "Create"} Category</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         {image && (
           <div className="flex justify-center items-center">
@@ -150,9 +182,12 @@ const Form = () => {
             className="border px-4 py-2 rounded-lg w-full focus:outline-none"
           />
         </div>
+        {id? 
         <Button variant="contained" type="submit">
+          {isLoading && setIsLoading ? "Updating..." : "Update"}
+        </Button> : <Button variant="contained" type="submit">
           {isLoading && setIsLoading ? "Creating..." : "Create"}
-        </Button>
+        </Button> }
       </form>
     </div>
   );

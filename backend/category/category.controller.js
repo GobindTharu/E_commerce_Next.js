@@ -12,7 +12,7 @@ router.post(
   "/category/create",
   validateReqBody(categoryValidationSchema),
   async (req, res) => {
-    // extract new product from req.body
+    // extract new category from req.body
     const newCategory = req.body;
 
     // get seller id
@@ -72,17 +72,37 @@ router.post(
       .send({ message: "success", CategoryList: categories, totalPage });
   }
 );
+router.get(
+  "/category/detail/:id",
+  validateMongoIdFromReqParams,
+  async (req, res) => {
+    // extract category id from req.params
+    const categoryId = req.params.id;
+
+    // find category by id
+    const  category = await CategoryTable.findOne({ _id: categoryId });
+
+    // if not category, throw error
+    if (!category) {
+      return res.status(404).send({ message: "Product does not exist." });
+    }
+
+    return res
+      .status(200)
+      .send({ message: "success", categoryDetails: category });
+  }
+);
 
 router.delete(
   "/category/delete/:id",
   validateMongoIdFromReqParams,
 
   async (req, res) => {
-    // extract product id from req.params
+    // extract category id from req.params
     const categoryId = req.params.id;
     console.log(categoryId);
 
-    // delete product
+    // delete category
     await CategoryTable.deleteOne({ _id: categoryId });
 
     return res
@@ -91,14 +111,14 @@ router.delete(
   }
 );
 
-// edit product
+// edit category
 router.put(
   "/category/edit/:id",
   validateMongoIdFromReqParams,
 
   validateReqBody(categoryValidationSchema),
   async (req, res) => {
-    // extract product id from req.params
+    // extract category id from req.params
     const categoryId = req.params.id;
 
     // extract new values from req.body
@@ -106,7 +126,7 @@ router.put(
 
     console.log(newValues);
 
-    // update product
+    // update category
     await CategoryTable.updateOne(
       { _id: categoryId },
       {
